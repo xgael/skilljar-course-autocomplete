@@ -238,6 +238,22 @@ def run(args):
         # el quiz puede aparecer despues de completar
         quiz_ids = [s["id"] for s in st if s["quiz"]] or quiz_ids
         if not quiz_ids:
+            # Algunos cursos NO tienen item lesson-quiz: el quiz va EMBEBIDO en una
+            # leccion normal (p.ej. "Certificate of completion"). Sondeamos las
+            # lecciones candidatas (incompletas o con titulo de quiz/certificado)
+            # buscando el widget de inicio de quiz.
+            cands = [s for s in st if (not s["done"]) or
+                     re.search(r"quiz|certificat|exam", s["t"], re.I)]
+            for s in cands:
+                pg.goto(f"{course_root}/{s['id']}", wait_until="domcontentloaded", timeout=60000)
+                pg.wait_for_timeout(1800)
+                # detecta el widget de inicio O un quiz ya en curso (sin boton Start)
+                if pg.locator(".sj-text-quiz-start, .quiz-start, [class*=quiz-start], "
+                              ".quiz-content, button.sj-text-quiz-next, .quiz-timer").count():
+                    quiz_ids = [s["id"]]
+                    print(f"Quiz embebido en leccion: {s['id']} ({s['t']})")
+                    break
+        if not quiz_ids:
             print("Este curso no tiene quiz. Listo.")
             ctx.storage_state(path=args.state)
             b.close()
