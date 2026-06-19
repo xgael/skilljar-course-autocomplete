@@ -235,100 +235,120 @@ def run(args):
         st = lesson_states(pg)
         done = sum(1 for s in st if s["done"])
         print(f"Lecciones completas: {done}/{len(st)}")
-        # el quiz puede aparecer despues de completar
-        quiz_ids = [s["id"] for s in st if s["quiz"]] or quiz_ids
-        if not quiz_ids:
-            # Algunos cursos NO tienen item lesson-quiz: el quiz va EMBEBIDO en una
-            # leccion normal (p.ej. "Certificate of completion"). Sondeamos las
-            # lecciones candidatas (incompletas o con titulo de quiz/certificado)
-            # buscando el widget de inicio de quiz.
-            cands = [s for s in st if (not s["done"]) or
-                     re.search(r"quiz|certificat|exam", s["t"], re.I)]
-            for s in cands:
-                pg.goto(f"{course_root}/{s['id']}", wait_until="domcontentloaded", timeout=60000)
-                pg.wait_for_timeout(1800)
-                # detecta el widget de inicio O un quiz ya en curso (sin boton Start)
-                if pg.locator(".sj-text-quiz-start, .quiz-start, [class*=quiz-start], "
-                              ".quiz-content, button.sj-text-quiz-next, .quiz-timer").count():
-                    quiz_ids = [s["id"]]
-                    print(f"Quiz embebido en leccion: {s['id']} ({s['t']})")
-                    break
-        if not quiz_ids:
+
+        QUIZ_WIDGET = (".sj-text-quiz-start, .quiz-start, [class*=quiz-start], "
+                       ".quiz-content, button.sj-text-quiz-next, .quiz-timer")
+
+        # 2) recolectar TODOS los quizzes/encuestas y resolverlos.
+        # Pueden ser: items lesson-quiz, quizzes EMBEBIDOS en una leccion normal
+        # (p.ej. "Certificate of completion"), o ENCUESTAS que no auto-completan al
+        # visitarlas. Sondeamos las lecciones candidatas (incompletas o con titulo de
+        # quiz/encuesta/certificado) buscando el widget del quiz.
+        targets = [s["id"] for s in st if s["quiz"]] + list(quiz_ids)
+        probe = [s for s in st if (not s["done"]) or
+                 re.search(r"quiz|surv|encuest|certificat|exam|assess", s["t"], re.I)]
+        for s in probe:
+            if s["id"] in targets:
+                continue
+            pg.goto(f"{course_root}/{s['id']}", wait_until="domcontentloaded", timeout=60000)
+            pg.wait_for_timeout(1800)
+            if pg.locator(QUIZ_WIDGET).count():
+                targets.append(s["id"])
+                print(f"Quiz/encuesta detectado: {s['id']} ({s['t']})")
+        # dedup preservando orden
+        seen = set()
+        targets = [q for q in targets if not (q in seen or seen.add(q))]
+
+        if not targets:
             print("Este curso no tiene quiz. Listo.")
             ctx.storage_state(path=args.state)
             b.close()
             return
 
-        # 2) resolver el quiz, reintentando hasta pasar
-        quiz_id = quiz_ids[-1]
-        quiz_url = f"{course_root}/{quiz_id}"
-        passed = False
-        for attempt in range(1, args.max_retakes + 1):
-            print(f"\n=== Intento de quiz #{attempt} ===")
-            pg.goto(quiz_url, wait_until="domcontentloaded", timeout=60000)
-            pg.wait_for_timeout(2500)
-            # si quedo un intento a medias en el paso de feedback -> enviarlo
-            if pg.locator("textarea").count():
-                pg.locator("textarea").first.fill("ok")
-                try:
-                    pg.locator("button.sj-text-quiz-submit").first.click()
-                    pg.wait_for_timeout(3000)
-                except Exception:
-                    pass
-            # si hay pantalla de resultados con "Take this again"
-            again = pg.locator("a:has-text('Take this again'), button:has-text('Take this again')")
-            if again.count():
-                again.first.click()
+        def solve_quiz(quiz_url):
+            """Resuelve un quiz/encuesta reintentando hasta pasar. True si paso."""
+            for attempt in range(1, args.max_retakes + 1):
+                print(f"\n=== {quiz_url.split('/')[-1]} — intento #{attempt} ===")
+                pg.goto(quiz_url, wait_until="domcontentloaded", timeout=60000)
                 pg.wait_for_timeout(2500)
-            # arrancar quiz
-            pg.evaluate(JS_START)
-            pg.wait_for_timeout(2500)
-
-            for _ in range(40):
-                pg.wait_for_timeout(900)
-                d = pg.evaluate(JS_READ)
-                if d["n"] == 0:
-                    if d["ta"]:
-                        pg.locator("textarea").first.fill("Great course, clear and practical.")
-                        pg.wait_for_timeout(300)
+                # intento a medias en el paso de feedback -> enviarlo
+                if pg.locator("textarea").count():
+                    pg.locator("textarea").first.fill("ok")
+                    try:
                         pg.locator("button.sj-text-quiz-submit").first.click()
-                        pg.wait_for_timeout(3500)
-                    break
-                idx, why = resolve_answer(d["qt"], d["opts"], bank, args.resolver, args.llm_cmd)
-                label = clean(d["opts"][idx])[:55]
-                print(f"  {d['num']}: -> [{idx}] {label} ({why})")
-                rid = d["ids"][idx]
-                if rid:
-                    pg.locator(f"#{rid}").check(force=True)
-                else:
-                    pg.locator("input[type=radio]").nth(idx).check(force=True)
-                pg.wait_for_timeout(300)
-                pg.locator("button.sj-text-quiz-next").first.click()
+                        pg.wait_for_timeout(3000)
+                    except Exception:
+                        pass
+                # pantalla de resultados con "Take this again"
+                again = pg.locator("a:has-text('Take this again'), button:has-text('Take this again')")
+                if again.count():
+                    again.first.click()
+                    pg.wait_for_timeout(2500)
+                pg.evaluate(JS_START)
+                pg.wait_for_timeout(2500)
 
-            pg.wait_for_timeout(1500)
-            res = pg.inner_text("body")
-            score = re.search(r"(\d+)\s+of\s+(\d+)\s+Correct", res)
-            if "passed" in res.lower() and "did not pass" not in res.lower():
-                print(f"  APROBADO {score.group(0) if score else ''}")
-                passed = True
-                break
-            else:
-                print(f"  No paso {score.group(0) if score else ''}. Reintentando...")
+                for _ in range(40):
+                    pg.wait_for_timeout(900)
+                    d = pg.evaluate(JS_READ)
+                    if d["n"] == 0:
+                        if d["ta"]:
+                            pg.locator("textarea").first.fill("Great course, clear and practical.")
+                            pg.wait_for_timeout(300)
+                            pg.evaluate("()=>{const s=document.querySelector("
+                                        "'button.sj-text-quiz-submit,button.sj-text-quiz-finish');"
+                                        "if(s)s.click();}")
+                            pg.wait_for_timeout(3500)
+                        break
+                    idx, why = resolve_answer(d["qt"], d["opts"], bank, args.resolver, args.llm_cmd)
+                    print(f"  {d['num']}: -> [{idx}] {clean(d['opts'][idx])[:55]} ({why})")
+                    rid = d["ids"][idx]
+                    if rid:
+                        pg.locator(f"#{rid}").check(force=True)
+                    else:
+                        pg.locator("input[type=radio]").nth(idx).check(force=True)
+                    pg.wait_for_timeout(300)
+                    # ultima pregunta: el boton es "Submit", no "Next Question"
+                    clicked = pg.evaluate(
+                        "()=>{const n=document.querySelector('button.sj-text-quiz-next');"
+                        "if(n&&n.offsetParent!==null){n.click();return 'next';}"
+                        "const s=document.querySelector('button.sj-text-quiz-submit,button.sj-text-quiz-finish');"
+                        "if(s){s.click();return 'submit';} return 'none';}"
+                    )
+                    if clicked == "none":
+                        break
+
+                pg.wait_for_timeout(2500)
+                res = pg.inner_text("body").lower()
+                score = re.search(r"(\d+)\s+of\s+(\d+)\s+correct", res)
+                if "did not pass" in res:
+                    print(f"  No paso {score.group(0) if score else ''}. Reintentando...")
+                    continue
+                # paso = dice "passed", o es encuesta sin score (no hay "X of Y correct")
+                print(f"  OK {score.group(0) if score else '(encuesta/sin score)'}")
+                return True
+            return False
+
+        all_ok = True
+        for qid in targets:
+            if not solve_quiz(f"{course_root}/{qid}"):
+                all_ok = False
+                print(f"  Quiz {qid} no se logro aprobar.")
 
         ctx.storage_state(path=args.state)
-        if not passed:
-            print("\nNo se logro aprobar en los reintentos. Revisa el banco de respuestas o usa --resolver bank+llm.")
-            b.close()
-            sys.exit(2)
 
-        # 3) verificar certificado en el perfil
+        # 3) verificar completado/certificado en el perfil
         host = re.match(r"(https://[^/]+)", base).group(1)
+        slug = course_root.rsplit("/", 1)[-1].replace("-", " ")
+        key = max(slug.split(), key=len)  # palabra mas larga del slug (mas distintiva)
         pg.goto(f"{host}/accounts/profile/", wait_until="domcontentloaded", timeout=60000)
         pg.wait_for_timeout(2500)
-        slug = course_root.rsplit("/", 1)[-1].replace("-", " ")
         for line in pg.inner_text("body").split("\n"):
-            if "certificate" in line.lower() and slug.split()[0].lower() in line.lower() and line.strip():
-                print("PERFIL>", line.strip()[:90])
+            if key.lower() in line.lower() and ("certificate" in line.lower() or "lesson" in line.lower()):
+                print("PERFIL>", line.strip()[:100])
+        if not all_ok:
+            print("\nAlgun quiz no se aprobo. Revisa el banco o usa --resolver bank+llm.")
+            b.close()
+            sys.exit(2)
         print("\nCurso completado y quiz aprobado.")
         b.close()
 
