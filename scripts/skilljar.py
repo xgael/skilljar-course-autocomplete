@@ -183,9 +183,11 @@ JS_READ = r"""() => {
 
 
 def lesson_states(pg):
+    # OJO: el quiz es <a class="lesson lesson-quiz"> (SIN lesson-modular), por eso
+    # hay que consultar por `a.lesson` (engloba lecciones normales Y el quiz).
     return pg.eval_on_selector_all(
-        "a.lesson-modular",
-        "els=>els.map(e=>({id:e.href.split('/').pop(),"
+        "a.lesson",
+        "els=>els.filter(e=>/\\/\\d+$/.test(e.href)).map(e=>({id:e.href.split('/').pop(),"
         "t:(e.innerText||'').trim().slice(0,50),"
         "done:e.className.includes('lesson-complete'),"
         "quiz:e.className.includes('lesson-quiz')}))",
