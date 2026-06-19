@@ -67,6 +67,13 @@ Opciones utiles:
   (participacion); igual se eligen positivas.
 - Ampliar el banco: agrega `{ "q": "...", "a": "..." }` a `answers.json` por cada curso nuevo
   (substrings unicos, en minusculas; se ignora HTML).
+- **Quizzes sin barajado + resolvedor determinista:** si el LLM falla una pregunta y el quiz NO
+  baraja las opciones, reintentar da el MISMO resultado. `solve_quiz` cachea la "firma" de
+  respuestas de cada intento (set de opciones elegidas) y, si se repite una firma ya enviada,
+  **aborta ese quiz** en vez de gastar los reintentos. Si el quiz SI baraja, las firmas difieren
+  y se sigue reintentando (asi paso AI Fluency en el 2o intento). Para cazar respuestas dificiles:
+  ampliar `answers.json` con la respuesta correcta, o deducirla por las ecuaciones de score
+  (cada intento revela cuantas acertaste).
 
 ## Etica / alcance
 Pensada para que el dueño de la cuenta (o alguien autorizado) automatice **su propia** formacion.

@@ -267,6 +267,7 @@ def run(args):
 
         def solve_quiz(quiz_url):
             """Resuelve un quiz/encuesta reintentando hasta pasar. True si paso."""
+            tried_sigs = set()  # firmas de respuestas ya enviadas (para cazar estancamiento)
             for attempt in range(1, args.max_retakes + 1):
                 print(f"\n=== {quiz_url.split('/')[-1]} — intento #{attempt} ===")
                 pg.goto(quiz_url, wait_until="domcontentloaded", timeout=60000)
@@ -287,6 +288,7 @@ def run(args):
                 pg.evaluate(JS_START)
                 pg.wait_for_timeout(2500)
 
+                chosen = []  # opciones elegidas en este intento (para la firma)
                 for _ in range(40):
                     pg.wait_for_timeout(900)
                     d = pg.evaluate(JS_READ)
@@ -300,6 +302,7 @@ def run(args):
                             pg.wait_for_timeout(3500)
                         break
                     idx, why = resolve_answer(d["qt"], d["opts"], bank, args.resolver, args.llm_cmd)
+                    chosen.append(clean(d["opts"][idx]).lower())
                     print(f"  {d['num']}: -> [{idx}] {clean(d['opts'][idx])[:55]} ({why})")
                     rid = d["ids"][idx]
                     if rid:
@@ -320,12 +323,22 @@ def run(args):
                 pg.wait_for_timeout(2500)
                 res = pg.inner_text("body").lower()
                 score = re.search(r"(\d+)\s+of\s+(\d+)\s+correct", res)
-                if "did not pass" in res:
-                    print(f"  No paso {score.group(0) if score else ''}. Reintentando...")
-                    continue
-                # paso = dice "passed", o es encuesta sin score (no hay "X of Y correct")
-                print(f"  OK {score.group(0) if score else '(encuesta/sin score)'}")
-                return True
+                if "did not pass" not in res:
+                    # paso = dice "passed", o es encuesta sin score (no hay "X of Y correct")
+                    print(f"  OK {score.group(0) if score else '(encuesta/sin score)'}")
+                    return True
+                # No paso. Si las respuestas son IDENTICAS a un intento previo (firma ya
+                # vista), el quiz NO baraja opciones y el resolvedor es determinista:
+                # reintentar dara el mismo resultado -> abortar y no gastar intentos.
+                sig = tuple(sorted(chosen))
+                if sig in tried_sigs:
+                    print(f"  No paso {score.group(0) if score else ''}. Mismas respuestas que un "
+                          f"intento previo (quiz sin barajado, resolvedor estancado) -> abortando.")
+                    print("  Sugerencia: agrega las respuestas correctas al banco (answers.json) "
+                          "o usa --resolver bank+llm con un mejor LLM.")
+                    return False
+                tried_sigs.add(sig)
+                print(f"  No paso {score.group(0) if score else ''}. Reintentando...")
             return False
 
         all_ok = True
