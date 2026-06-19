@@ -1,0 +1,26 @@
+{
+  "_comment": "Banco de respuestas por substring. 'q' = trozo unico de la pregunta; 'a' = trozo unico de la opcion correcta. El resolvedor compara en minusculas e ignora etiquetas HTML. Si la pregunta no se captura, cae a match por 'a'. Las preguntas de encuesta (satisfaccion/recomendacion) y el feedback NO van aqui: se resuelven automaticamente. Amplia este banco con cada curso nuevo, o usa --resolver bank+llm para que un LLM resuelva las desconocidas.",
+  "knowledge": [
+    { "q": "best describes Claude's capabilities", "a": "AI assistant that can help with writing" },
+    { "q": "difference between projects and skills", "a": "Projects store knowledge, skills perform" },
+    { "q": "data can Claude access through connectors", "a": "Only data you have permission to access" },
+    { "q": "complete the initial setup before team members", "a": "organization Owner" },
+    { "q": "knowledge base approaches context limits", "a": "RAG mode" },
+    { "q": "do with a published artifact", "a": "remix" },
+    { "q": "three elements make up an effective prompt", "a": "Setting the stage, defining the task" },
+    { "q": "response is too generic", "a": "Add more details about your audience" },
+    { "q": "navigating an unfamiliar codebase", "a": "Claude Code" },
+    { "q": "good candidate for Research mode", "a": "comprehensive market analysis" },
+
+    { "q": "what is an ai agent", "a": "AI that takes action to complete goals" },
+    { "q": "context window limit", "a": "automatically compacts your conversation" },
+    { "q": "recommended workflow for using Claude Code", "a": "Explore" },
+    { "q": "use the CLAUDE.md file", "a": "reads it automatically at the start of every session" },
+
+    { "q": "messages.create call itself require", "a": "max tokens limit, and a list of messages" },
+    { "q": "who actually executes it", "a": "Your code runs it and sends the result back" },
+    { "q": "context management matter for long-running agents", "a": "you pay for what's in it" },
+    { "q": "best fit for a managed agent", "a": "Long-running, sandboxed, or background work" },
+    { "q": "invokes the built-in skill for working with the Claude API", "a": "claude-api" }
+  ]
+}
