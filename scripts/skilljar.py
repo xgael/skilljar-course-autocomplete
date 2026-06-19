@@ -305,10 +305,25 @@ def run(args):
                     chosen.append(clean(d["opts"][idx]).lower())
                     print(f"  {d['num']}: -> [{idx}] {clean(d['opts'][idx])[:55]} ({why})")
                     rid = d["ids"][idx]
-                    if rid:
-                        pg.locator(f"#{rid}").check(force=True)
-                    else:
-                        pg.locator("input[type=radio]").nth(idx).check(force=True)
+                    # OJO: los radios suelen estar ESTILIZADOS (input real oculto); .check()
+                    # de Playwright falla ("did not change its state"). Seleccionamos por JS:
+                    # click al label + checked=true + dispatch 'change' (robusto y fiable).
+                    sel_ok = pg.evaluate(
+                        "(a)=>{let r=a.rid?document.getElementById(a.rid):"
+                        "[...document.querySelectorAll('input[type=radio]')].filter(x=>x.offsetParent!==null)[a.idx];"
+                        "if(!r)return false;"
+                        "let l=r.closest('label')||(r.id&&document.querySelector(\"label[for='\"+r.id+\"']\"));"
+                        "if(l)l.click(); else r.click();"
+                        "r.checked=true; r.dispatchEvent(new Event('change',{bubbles:true}));"
+                        "r.dispatchEvent(new Event('click',{bubbles:true})); return r.checked;}",
+                        {"rid": rid, "idx": idx},
+                    )
+                    if not sel_ok:
+                        try:
+                            (pg.locator(f"#{rid}") if rid else
+                             pg.locator("input[type=radio]").nth(idx)).check(force=True)
+                        except Exception:
+                            pass
                     pg.wait_for_timeout(300)
                     # ultima pregunta: el boton es "Submit", no "Next Question"
                     clicked = pg.evaluate(
