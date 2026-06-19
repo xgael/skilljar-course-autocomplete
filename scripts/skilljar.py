@@ -147,6 +147,32 @@ def pick_from_llm(question, options, llm_cmd):
     return None
 
 
+def pick_multi_from_llm(question, options, llm_cmd):
+    """Para preguntas 'select all that apply': devuelve lista de indices correctos."""
+    opts_txt = "\n".join(f"{i}) {clean(o)}" for i, o in enumerate(options))
+    prompt = (
+        "Eres experto en Anthropic (Claude). Pregunta de seleccion MULTIPLE "
+        "('select all that apply'): puede haber VARIAS respuestas correctas.\n\n"
+        f"Pregunta: {clean(question)}\n{opts_txt}\n\n"
+        "Responde UNICAMENTE con los indices de TODAS las opciones correctas separados "
+        "por comas (ej: 0,2,3). Sin texto extra."
+    )
+    try:
+        out = subprocess.run(llm_cmd.split() + [prompt], capture_output=True,
+                             text=True, timeout=120).stdout
+    except Exception as e:
+        print(f"   [llm-multi] error: {e}")
+        return []
+    nums = re.findall(r"\d+", out)
+    idxs = sorted({int(n) for n in nums if int(n) < len(options)})
+    return idxs
+
+
+def resolve_multi(question, options, llm_cmd):
+    idxs = pick_multi_from_llm(question, options, llm_cmd)
+    return idxs or [0]  # al menos una para poder avanzar
+
+
 def resolve_answer(question, options, bank, resolver, llm_cmd):
     if looks_like_survey(question, options):
         return pick_survey(options), "survey"
@@ -167,18 +193,24 @@ JS_START = """() => {const c=[...document.querySelectorAll('button,a,div')]
   .find(e=>e.offsetParent!==null && /quiz-start/.test(e.className)); if(c)c.click();}"""
 
 JS_READ = r"""() => {
-  const radios=[...document.querySelectorAll('input[type=radio]')].filter(r=>r.offsetParent!==null);
+  const vis = e => e.offsetParent!==null;
+  const radios=[...document.querySelectorAll('input[type=radio]')].filter(vis);
+  // checkboxes de respuesta (multi-select "select all that apply"); excluir FAQ/remember
+  const checks=[...document.querySelectorAll('input[type=checkbox]')]
+    .filter(e=>vis(e) && !['open-faqs','remember'].includes(e.name));
+  const multi = checks.length>0 && radios.length===0;
+  const inputs = multi ? checks : radios;
   const qel=document.querySelector('.quiz-question-text')||document.querySelector('[class*=question-text]');
   let qt=qel?qel.innerText.trim():'';
   if(!qt){const cont=document.querySelector('[class*=quiz]')||document.body;
     const lines=(cont.innerText||'').split('\n').map(s=>s.trim());
-    qt=lines.filter(x=>x.endsWith('?')).slice(-1)[0]||'';}
+    qt=lines.filter(x=>x.endsWith('?')||/select all/i.test(x)).slice(-1)[0]||'';}
   const num=((document.body.innerText||'').match(/Question (\d+) of (\d+)/)||[''])[0];
-  const opts=radios.map(r=>{let l=r.closest('label');
+  const opts=inputs.map(r=>{let l=r.closest('label');
     if(!l&&r.id)l=document.querySelector('label[for="'+r.id+'"]');
     return (l?l.innerText:r.value).trim();});
-  const ids=radios.map(r=>r.id);
-  return {n:radios.length, qt, num, opts, ids, ta:document.querySelectorAll('textarea').length};
+  const ids=inputs.map(r=>r.id);
+  return {n:inputs.length, multi, qt, num, opts, ids, ta:document.querySelectorAll('textarea').length};
 }"""
 
 
@@ -265,6 +297,25 @@ def run(args):
             b.close()
             return
 
+        def advance():
+            """Avanza el quiz: click REAL de Playwright en Next o Submit.
+            (JS .click() no dispara el handler de algunos widgets, p.ej. linear-scale)."""
+            nb = pg.locator("button.sj-text-quiz-next")
+            try:
+                if nb.count() and nb.first.is_visible():
+                    nb.first.click(timeout=8000)
+                    return "next"
+            except Exception:
+                pass
+            sb = pg.locator("button.sj-text-quiz-submit, button.sj-text-quiz-finish")
+            try:
+                if sb.count() and sb.first.is_visible():
+                    sb.first.click(timeout=8000)
+                    return "submit"
+            except Exception:
+                pass
+            return "none"
+
         def solve_quiz(quiz_url):
             """Resuelve un quiz/encuesta reintentando hasta pasar. True si paso."""
             tried_sigs = set()  # firmas de respuestas ya enviadas (para cazar estancamiento)
@@ -289,50 +340,79 @@ def run(args):
                 pg.wait_for_timeout(2500)
 
                 chosen = []  # opciones elegidas en este intento (para la firma)
-                for _ in range(40):
+                last_x = total_q = 0  # ultima pregunta vista / total ("Question X of N")
+                empty = 0             # lecturas vacias consecutivas (radios aun cargando)
+                for _ in range(80):
                     pg.wait_for_timeout(900)
                     d = pg.evaluate(JS_READ)
                     if d["n"] == 0:
                         if d["ta"]:
-                            pg.locator("textarea").first.fill("Great course, clear and practical.")
+                            # Pregunta de TEXTO LIBRE: puede ser intermedia ("Next Question")
+                            # o el feedback final ("Submit"). Rellenar y avanzar; solo
+                            # terminar si el boton fue Submit/Finish.
+                            m = re.search(r"(\d+)\s+of\s+(\d+)", d["num"] or "")
+                            if m:
+                                last_x, total_q = int(m.group(1)), int(m.group(2))
+                            for ti in range(pg.locator("textarea").count()):
+                                try:
+                                    pg.locator("textarea").nth(ti).fill(
+                                        "This course was clear, practical and useful for my work.")
+                                except Exception:
+                                    pass
                             pg.wait_for_timeout(300)
-                            pg.evaluate("()=>{const s=document.querySelector("
-                                        "'button.sj-text-quiz-submit,button.sj-text-quiz-finish');"
-                                        "if(s)s.click();}")
+                            adv = advance()
+                            empty = 0
+                            if adv == "next":
+                                pg.wait_for_timeout(1000)
+                                continue
                             pg.wait_for_timeout(3500)
+                            break
+                        body = pg.inner_text("body").lower()
+                        end_now = any(k in body for k in
+                                      ["did not pass", "correct", "you have passed",
+                                       "take this again", "you passed"])
+                        # Si AUN no llegamos a la ultima pregunta y no hay pantalla de
+                        # resultado, el read vacio es transitorio (radios cargando) -> esperar.
+                        if not end_now and total_q and last_x < total_q and empty < 6:
+                            empty += 1
+                            pg.wait_for_timeout(1200)
+                            continue
                         break
-                    idx, why = resolve_answer(d["qt"], d["opts"], bank, args.resolver, args.llm_cmd)
-                    chosen.append(clean(d["opts"][idx]).lower())
-                    print(f"  {d['num']}: -> [{idx}] {clean(d['opts'][idx])[:55]} ({why})")
-                    rid = d["ids"][idx]
-                    # OJO: los radios suelen estar ESTILIZADOS (input real oculto); .check()
-                    # de Playwright falla ("did not change its state"). Seleccionamos por JS:
-                    # click al label + checked=true + dispatch 'change' (robusto y fiable).
-                    sel_ok = pg.evaluate(
-                        "(a)=>{let r=a.rid?document.getElementById(a.rid):"
-                        "[...document.querySelectorAll('input[type=radio]')].filter(x=>x.offsetParent!==null)[a.idx];"
-                        "if(!r)return false;"
-                        "let l=r.closest('label')||(r.id&&document.querySelector(\"label[for='\"+r.id+\"']\"));"
-                        "if(l)l.click(); else r.click();"
-                        "r.checked=true; r.dispatchEvent(new Event('change',{bubbles:true}));"
-                        "r.dispatchEvent(new Event('click',{bubbles:true})); return r.checked;}",
-                        {"rid": rid, "idx": idx},
-                    )
-                    if not sel_ok:
-                        try:
-                            (pg.locator(f"#{rid}") if rid else
-                             pg.locator("input[type=radio]").nth(idx)).check(force=True)
-                        except Exception:
-                            pass
-                    pg.wait_for_timeout(300)
-                    # ultima pregunta: el boton es "Submit", no "Next Question"
-                    clicked = pg.evaluate(
-                        "()=>{const n=document.querySelector('button.sj-text-quiz-next');"
-                        "if(n&&n.offsetParent!==null){n.click();return 'next';}"
-                        "const s=document.querySelector('button.sj-text-quiz-submit,button.sj-text-quiz-finish');"
-                        "if(s){s.click();return 'submit';} return 'none';}"
-                    )
-                    if clicked == "none":
+                    empty = 0
+                    m = re.search(r"(\d+)\s+of\s+(\d+)", d["num"] or "")
+                    if m:
+                        last_x, total_q = int(m.group(1)), int(m.group(2))
+                    # multi-select ("select all that apply") = varios indices; single = uno
+                    if d["multi"]:
+                        idxs = resolve_multi(d["qt"], d["opts"], args.llm_cmd)
+                        why = "llm-multi"
+                    else:
+                        single, why = resolve_answer(d["qt"], d["opts"], bank,
+                                                     args.resolver, args.llm_cmd)
+                        idxs = [single]
+                    chosen.append("+".join(sorted(clean(d["opts"][i]).lower() for i in idxs)))
+                    print(f"  {d['num']}: -> {idxs} "
+                          f"{[clean(d['opts'][i])[:35] for i in idxs]} ({why})")
+                    # OJO: inputs ESTILIZADOS (real oculto); .check() de Playwright falla.
+                    # Seleccionamos por JS: click al label + checked + dispatch eventos.
+                    # `kind` distingue checkbox (multi) de radio (single).
+                    for i in idxs:
+                        rid = d["ids"][i] if i < len(d["ids"]) else ""
+                        pg.evaluate(
+                            "(a)=>{const sel=a.multi?'input[type=checkbox]':'input[type=radio]';"
+                            "const list=[...document.querySelectorAll(sel)].filter(x=>x.offsetParent!==null"
+                            " && !['open-faqs','remember'].includes(x.name));"
+                            "let r=a.rid?document.getElementById(a.rid):list[a.idx]; if(!r)return false;"
+                            "let l=r.closest('label')||(r.id&&document.querySelector(\"label[for='\"+r.id+\"']\"));"
+                            "if(l)l.click(); else r.click();"
+                            "r.checked=true; r.dispatchEvent(new Event('change',{bubbles:true}));"
+                            "r.dispatchEvent(new Event('click',{bubbles:true})); return r.checked;}",
+                            {"rid": rid, "idx": i, "multi": d["multi"]},
+                        )
+                        pg.wait_for_timeout(150)
+                    pg.wait_for_timeout(250)
+                    # avanzar: Next (o Submit en la ultima) con click REAL de Playwright
+                    if advance() == "none":
                         break
 
                 pg.wait_for_timeout(2500)
