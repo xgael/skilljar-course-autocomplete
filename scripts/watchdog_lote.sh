@@ -20,6 +20,17 @@ for f in glob.glob(os.path.expanduser("~/Documentos/skilljar-cursos/academia900_
 print(len(done))
 PYEOF
 )
+# aviso por hitos de 100 (una vez por hito, sobrevive reboots)
+HITO_F=$NOTAS/.ultimo_hito
+ULT=$(cat $HITO_F 2>/dev/null || echo 0)
+HITO=$(( HECHAS / 100 * 100 ))
+if [ "$HITO" -gt "$ULT" ] && [ "$HITO" -lt "900" ]; then
+  TOKEN=$(python3 -c "import json;print(json.load(open('$HOME/.arca/app/_internal/telegram_bot/config.json'))['telegram_token'])" 2>/dev/null)
+  [ -n "$TOKEN" ] && curl -s -X POST "https://api.telegram.org/bot$TOKEN/sendMessage"     --data-urlencode "chat_id=2091564608"     --data-urlencode "text=📊 Lote Academy: $HECHAS/900 cuentas hechas (hito $HITO). Todo verificado 21/21." >/dev/null
+  echo $HITO > $HITO_F
+  echo "hito $HITO notificado $(date)" >> $LOG
+fi
+
 if [ "$HECHAS" = "900" ]; then
   if [ ! -f /tmp/skj900/NOTIFICADO ]; then
     TOKEN=$(python3 -c "import json;print(json.load(open('$HOME/.arca/app/_internal/telegram_bot/config.json'))['telegram_token'])" 2>/dev/null)
