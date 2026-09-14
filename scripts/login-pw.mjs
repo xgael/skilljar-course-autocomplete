@@ -18,12 +18,12 @@ const { navegador, page } = await conectar();
 
 async function cerrarSesion() {
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 }).catch(() => {});
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(900);
   const so = page.getByRole('link', { name: /sign out|log out|cerrar sesión/i }).first();
-  if (await so.count()) { await so.click().catch(() => {}); await page.waitForTimeout(3000); }
+  if (await so.count()) { await so.click().catch(() => {}); await page.waitForTimeout(1400); }
   // limpieza dura por si el enlace no estaba: borrar cookies del contexto
   try { await page.context().clearCookies(); } catch {}
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(300);
   console.log("signout hecho");
 }
 
@@ -35,12 +35,12 @@ if (!email || !pass) { console.error("faltan --email/--pass"); process.exit(1); 
 await cerrarSesion();
 
 await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
-await page.waitForTimeout(2500);
+await page.waitForTimeout(1200);
 if (await sesionViva(page)) { console.log("ya había sesión viva (inesperado), la cierro y reintento"); await cerrarSesion(); await page.goto(url, { waitUntil: "domcontentloaded" }); await page.waitForTimeout(2000); }
 
 // Ir a Sign In
 const si = page.getByRole('link', { name: /sign in|log in|iniciar sesión/i }).first();
-if (await si.count()) { await si.click(); await page.waitForTimeout(5000); }
+if (await si.count()) { await si.click(); await page.locator("#id_login").waitFor({ timeout: 15000 }).catch(() => {}); }
 
 // Rellenar credenciales (accounts.skilljar.com: #id_login / #id_password)
 const campoEmail = page.locator('#id_login, input[type=email][name="login"], input[type=email]').first();
@@ -51,7 +51,10 @@ await campoPass.fill(pass);
 const btn = page.getByRole('button', { name: /^sign in$|^log in$|iniciar/i }).first();
 if (await btn.count()) await btn.click(); else await campoPass.press("Enter");
 
-await page.waitForTimeout(7000);
+for (let i = 0; i < 28; i++) {
+  await page.waitForTimeout(500);
+  if (await sesionViva(page).catch(() => false)) break;
+}
 const cuerpo = await page.locator('body').innerText();
 const errores = /incorrect|invalid|no active account|wrong|does not match|too many/i.test(cuerpo);
 const ok = await sesionViva(page);

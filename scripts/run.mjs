@@ -162,7 +162,11 @@ for (const P of pendientes) {
       // el error que hizo que el banco no encontrara nada.
       const texto = await textoPregunta(page, n, total);
       const captura = `${CAPTURAS}/${P.href.split("/").pop()}-q${String(n).padStart(2, "0")}.png`;
-      await page.screenshot({ path: captura }).catch(() => {});
+      // En modo lote (SKILLJAR_SIN_CAPTURAS=1) no se captura cada pregunta: con el
+      // banco maduro la evidencia por pregunta no aporta y cuesta ~2-3 min por cuenta.
+      // Las preguntas DESCONOCIDAS sí se capturan más abajo, que es donde importa.
+      if (!process.env.SKILLJAR_SIN_CAPTURAS)
+        await page.screenshot({ path: captura }).catch(() => {});
 
       if (!ops.length) {
         // Política del usuario (2026-09-13): los comentarios libres se contestan
@@ -192,8 +196,10 @@ for (const P of pendientes) {
             log(LOG, `  Q${n}/${total} [banco multi] marqué ${marcadas.length}/${entradaMulti.multi.length}`);
             bitacora.push({ n, texto, elegida: marcadas.join(" + "), fuente: "banco multi", captura });
           } else if (RECOLECTAR) {
-            if (!desconocidasAqui.some(d => d.pregunta === n))
+            if (!desconocidasAqui.some(d => d.pregunta === n)) {
+              if (process.env.SKILLJAR_SIN_CAPTURAS) await page.screenshot({ path: captura }).catch(() => {});
               desconocidasAqui.push({ examen: P.titulo, curso: P.curso, href: P.href, pregunta: n, texto, opciones: textos, captura, multi: true, motivo: "checkbox multi sin entrada en banco" });
+          }
             log(LOG, `  Q${n}/${total} [multi] sin entrada en banco, la anoto y marco relleno`);
             await elegir(page, 0);
           } else {
@@ -262,8 +268,10 @@ for (const P of pendientes) {
           // sola pasada. Antes abortaba en la primera: un examen con tres preguntas
           // nuevas costaba tres vueltas completas.
           // No re-anotar la misma pregunta si el portal nos rebotó y la releímos.
-          if (!desconocidasAqui.some(d => d.pregunta === n))
+          if (!desconocidasAqui.some(d => d.pregunta === n)) {
+            if (process.env.SKILLJAR_SIN_CAPTURAS) await page.screenshot({ path: captura }).catch(() => {});
             desconocidasAqui.push({ examen: P.titulo, curso: P.curso, href: P.href, pregunta: n, texto, opciones: textos, captura, motivo: motivoBanco });
+          }
           log(LOG, `  Q${n}/${total} sin respuesta confiable (${motivoBanco ?? "no está en el banco"}), la anoto y sigo inventariando`);
           // Para poder ver la siguiente hay que avanzar. Se intenta SIN marcar nada,
           // PERO hay exámenes (Academy) que exigen respuesta: el clic a Next "funciona"

@@ -7,6 +7,7 @@ PUERTO=$((9230 + N))
 export SKILLJAR_DIR=/tmp/skj900-w$N
 export SKILLJAR_PUERTO=$PUERTO
 export SKILLJAR_NOTAS=$HOME/Documentos/skilljar-cursos
+export SKILLJAR_SIN_CAPTURAS=1
 PERFIL=/tmp/skj900-chrome-w$N
 PROG=$HOME/Documentos/skilljar-cursos/academia900_progreso_w$N.json
 LOG=$SKILLJAR_DIR/lote.log
