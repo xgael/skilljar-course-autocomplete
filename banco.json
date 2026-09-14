@@ -1,0 +1,2643 @@
+{
+ "which of the following best describes \"problem awareness\" within the delegation competency?": {
+  "respuesta": "Clearly defining your goals and understanding what work is needed before involving AI",
+  "respuestas": [
+   "Clearly defining your goals and understanding what work is needed before involving AI"
+  ],
+  "verificada": true,
+  "origen": "confirmada por score 10/10 en cuenta previa"
+ },
+ "which competency focuses on communicating clearly with ai systems about what you want, how you want it done, and how you want to interact?": {
+  "respuesta": "Description",
+  "respuestas": [
+   "Description"
+  ],
+  "verificada": true,
+  "origen": "confirmada por score 10/10 en cuenta previa"
+ },
+ "which of the following best describes \"product description\" within the description competency?": {
+  "respuesta": "Clearly defining what you want the AI to create or provide",
+  "respuestas": [
+   "Clearly defining what you want the AI to create or provide"
+  ],
+  "verificada": true,
+  "origen": "confirmada por score 10/10 en cuenta previa"
+ },
+ "which competency involves critically evaluating ai outputs, processes, and behaviors to ensure quality and appropriateness?": {
+  "respuesta": "Discernment",
+  "respuestas": [
+   "Discernment"
+  ],
+  "verificada": true,
+  "origen": "confirmada por score 10/10 en cuenta previa"
+ },
+ "which of the following best describes \"process discernment\" within the discernment competency?": {
+  "respuesta": "Assessing whether the AI's reasoning process and problem solving approach is effective",
+  "respuestas": [
+   "Assessing whether the AI's reasoning process and problem solving approach is effective"
+  ],
+  "verificada": true,
+  "origen": "confirmada por score 10/10 en cuenta previa"
+ },
+ "which of the following best describes \"transparency diligence\" within the diligence competency?": {
+  "respuesta": "Being open and honest about AI's role in your work with those who need to know",
+  "respuestas": [
+   "Being open and honest about AI's role in your work with those who need to know"
+  ],
+  "verificada": true,
+  "origen": "confirmada por score 10/10 en cuenta previa"
+ },
+ "which competency focuses primarily on deciding what work should be done by ai versus what should be handled by humans?": {
+  "respuesta": "Delegation",
+  "respuestas": [
+   "Delegation"
+  ],
+  "verificada": true,
+  "origen": "confirmada por score 10/10 en cuenta previa"
+ },
+ "the four core competencies in the ai fluency framework are known as \"the 4 ds.\" which of the following lists all four correctly?": {
+  "respuesta": "Delegation, Description, Discernment, Diligence",
+  "respuestas": [
+   "Delegation, Description, Discernment, Diligence"
+  ],
+  "verificada": true,
+  "origen": "confirmada por score 10/10 en cuenta previa"
+ },
+ "according to the ai fluency framework, what does ai fluency mean?": {
+  "respuesta": "The ability to work with AI effectively, efficiently, ethically, and safely",
+  "respuestas": [
+   "The ability to work with AI effectively, efficiently, ethically, and safely"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso AI Fluency (marco 4D)"
+ },
+ "which of the following is not one of the 4ds in the ai fluency framework?": {
+  "respuesta": "Documentation",
+  "respuestas": [
+   "Documentation"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso AI Fluency (marco 4D)"
+ },
+ "when using ai to develop learning objectives, what approach does this course recommend?": {
+  "respuesta": "Provide AI with your expertise, context, and standards, then collaborate to refine objectives",
+  "respuestas": [
+   "Provide AI with your expertise, context, and standards, then collaborate to refine objectives"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso AI Fluency (marco 4D)"
+ },
+ "when applying description to ai-assisted assessment design, what should educators consider?": {
+  "respuesta": "Clearly articulating output constraints for your specific assessment, such as format and style",
+  "respuestas": [
+   "Clearly articulating output constraints for your specific assessment, such as format and style"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso AI Fluency (marco 4D)"
+ },
+ "which of the following is an effective example of using discernment when using ai-generated assessment materials?": {
+  "respuesta": "Critically evaluating AI suggestions against your learning objectives and student needs, adjusting as necessary",
+  "respuestas": [
+   "Critically evaluating AI suggestions against your learning objectives and student needs, adjusting as necessary"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso AI Fluency (marco 4D)"
+ },
+ "what are the benefits of transparency and diligence in ai assisted course development?": {
+  "respuesta": "All of these",
+  "respuestas": [
+   "All of these"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso AI Fluency (marco 4D)"
+ },
+ "which loop helps you make thoughtful, responsible choices about when and how to use ai?": {
+  "respuesta": "The Delegation-Diligence loop",
+  "respuestas": [
+   "The Delegation-Diligence loop"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (marco 4D / AI Fluency nonprofits)"
+ },
+ "what are the four competencies in the 4d framework?": {
+  "respuesta": "Delegation, Description, Discernment, Diligence",
+  "respuestas": [
+   "Delegation, Description, Discernment, Diligence"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (marco 4D / AI Fluency nonprofits)"
+ },
+ "what are the three types of diligence discussed in the course?": {
+  "respuesta": "Creation, Deployment, and Transparency",
+  "respuestas": [
+   "Creation, Deployment, and Transparency"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (marco 4D / AI Fluency nonprofits)"
+ },
+ "when deciding what to automate with ai, what question should guide your decision?": {
+  "respuesta": "\"Should AI do this?\"",
+  "respuestas": [
+   "\"Should AI do this?\""
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (marco 4D / AI Fluency nonprofits)"
+ },
+ "what should you do before sharing sensitive data with ai tools?": {
+  "respuesta": "Review the terms and conditions of the AI tool",
+  "respuestas": [
+   "Review the terms and conditions of the AI tool"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (marco 4D / AI Fluency nonprofits)"
+ },
+ "what does ai fluency mean?": {
+  "respuesta": "The ability to use AI in ways that are efficient, effective, ethical, and safe",
+  "respuestas": [
+   "The ability to use AI in ways that are efficient, effective, ethical, and safe"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (marco 4D / AI Fluency nonprofits)"
+ },
+ "what does being \"the human in the loop\" mean for nonprofits?": {
+  "respuesta": "Ensuring AI serves your mission and maintaining relationships that define your work",
+  "respuestas": [
+   "Ensuring AI serves your mission and maintaining relationships that define your work"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (marco 4D / AI Fluency nonprofits)"
+ },
+ "what is the best approach when ai generates a draft for your organization?": {
+  "respuesta": "Apply Discernment to verify accuracy and alignment with your voice",
+  "respuestas": [
+   "Apply Discernment to verify accuracy and alignment with your voice"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (marco 4D / AI Fluency nonprofits)"
+ },
+ "what is one effective way to help ai understand your organization's voice when writing?": {
+  "respuesta": "Upload past successful work as examples",
+  "respuestas": [
+   "Upload past successful work as examples"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (marco 4D / AI Fluency nonprofits)"
+ },
+ "how can you build confidence in ai's data analysis capabilities?": {
+  "respuesta": "Test AI against data where you already know the correct results",
+  "respuestas": [
+   "Test AI against data where you already know the correct results"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (marco 4D / AI Fluency nonprofits)"
+ },
+ "which approach best demonstrates using ai as a learning partner rather than a substitute?": {
+  "respuesta": "Requesting AI act as a debate partner to challenge your arguments",
+  "respuestas": [
+   "Requesting AI act as a debate partner to challenge your arguments"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (AI Fluency)"
+ },
+ "what's an effective way to verify you're actually learning when using ai?": {
+  "respuesta": "See if you can explain the concept being learned to someone else",
+  "respuestas": [
+   "See if you can explain the concept being learned to someone else"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (AI Fluency)"
+ },
+ "what is this course's recommended approach for using ai in job application materials?": {
+  "respuesta": "AI can brainstorm and draft, but you must authentically represent yourself",
+  "respuestas": [
+   "AI can brainstorm and draft, but you must authentically represent yourself"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (AI Fluency)"
+ },
+ "why should you track and sometimes disclose your ai interactions in career contexts?": {
+  "respuesta": "Transparency is an important part of AI Fluency which is itself becoming a valuable career skill",
+  "respuestas": [
+   "Transparency is an important part of AI Fluency which is itself becoming a valuable career skill"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (AI Fluency)"
+ },
+ "what does being \"the human in the loop\" mean?": {
+  "respuesta": "You make decisions, steer the ship, and take responsibility in AI interactions",
+  "respuestas": [
+   "You make decisions, steer the ship, and take responsibility in AI interactions"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (AI Fluency)"
+ },
+ "according to the lesson, what makes human contribution uniquely valuable when working with ai?": {
+  "respuesta": "Your specific insight, judgment, and care",
+  "respuestas": [
+   "Your specific insight, judgment, and care"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (AI Fluency)"
+ },
+ "according to the framework, what is the primary focus of the diligence competency?": {
+  "respuesta": "Responsible AI use, transparency, and accountability",
+  "respuestas": [
+   "Responsible AI use, transparency, and accountability"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (AI Fluency)"
+ },
+ "you're building a chat app and users complain that responses take too long to appear. what feature should you implement?": {
+  "respuesta": "Use streaming to show text as it's generated",
+  "respuestas": [
+   "Use streaming to show text as it's generated"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you're using claude to extract data from documents and need the same consistent format every time. what temperature setting should you use?": {
+  "respuesta": "Temperature close to 0 for consistent, predictable outputs",
+  "respuestas": [
+   "Temperature close to 0 for consistent, predictable outputs"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you want to build a customer service bot that only talks about your company's products and stays professional. what's the best approach?": {
+  "respuesta": "Use a system prompt that makes Claude act like a customer service representative",
+  "respuestas": [
+   "Use a system prompt that makes Claude act like a customer service representative"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you're building a chatbot where users ask follow-up questions. a user asks \"what's 2+2?\" and then asks \"add 5 to that.\" what do you need to do for the second question to make sense?": {
+  "respuesta": "Send both the first question and Claude's previous answer along with the second question",
+  "respuestas": [
+   "Send both the first question and Claude's previous answer along with the second question"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you need test data for evaluating your prompt. you want to create realistic examples quickly without writing them all by hand. what's the best approach?": {
+  "respuesta": "Use Claude to automatically generate test cases",
+  "respuestas": [
+   "Use Claude to automatically generate test cases"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you've written a prompt for claude and want to know if it works well. what's the difference between prompt engineering and prompt evaluation?": {
+  "respuesta": "Prompt engineering writes better prompts, prompt evaluation measures how well they work",
+  "respuestas": [
+   "Prompt engineering writes better prompts, prompt evaluation measures how well they work"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "in prompt evaluation, what is a \"grader\" used for?": {
+  "respuesta": "To give objective scores measuring output quality",
+  "respuestas": [
+   "To give objective scores measuring output quality"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you just wrote a prompt for your app. you test it once and it works great, so you decide to use it. what's the main risk with this approach?": {
+  "respuesta": "Users will provide unexpected inputs that break it",
+  "respuestas": [
+   "Users will provide unexpected inputs that break it"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you're running a prompt evaluation. after creating your dataset and feeding questions through claude, what's the next step?": {
+  "respuesta": "Feed the responses through a grader to get scores",
+  "respuestas": [
+   "Feed the responses through a grader to get scores"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you're using another ai model to evaluate claude's responses. to get better scores than just random numbers around 6, what should you ask the grader to provide?": {
+  "respuesta": "Strengths, weaknesses, reasoning, and a score",
+  "respuestas": [
+   "Strengths, weaknesses, reasoning, and a score"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you want to check if claude's output contains certain keywords and has the right length. which type of grader should you use?": {
+  "respuesta": "Code grader",
+  "respuestas": [
+   "Code grader"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you want an ai to write movie reviews in a specific style. what's the best way to show the ai exactly what you want?": {
+  "respuesta": "Give it a sample movie review as an example",
+  "respuestas": [
+   "Give it a sample movie review as an example"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you're improving a prompt that generates workout plans. what should you do after writing your first version?": {
+  "respuesta": "Test it, see how well it works, then improve it",
+  "respuestas": [
+   "Test it, see how well it works, then improve it"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you're asking an ai to analyze a long customer review mixed in with your instructions. what helps the ai understand which part is the review?": {
+  "respuesta": "Put the review between XML tags like <review></review>",
+  "respuestas": [
+   "Put the review between XML tags like <review></review>"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you want an ai to write a book summary. which opening instruction works best?": {
+  "respuesta": "Write a three-paragraph summary of this book",
+  "respuestas": [
+   "Write a three-paragraph summary of this book"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "when using tools, what happens right after claude asks for specific external data?": {
+  "respuesta": "Your server runs code to fetch the requested information",
+  "respuestas": [
+   "Your server runs code to fetch the requested information"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you want to force claude to use a specific tool for data extraction. which toolchoice setting should you use?": {
+  "respuesta": "{\"toolChoice\": {\"tool\": {\"name\": \"tool-name\"}}}",
+  "respuestas": [
+   "{\"toolChoice\": {\"tool\": {\"name\": \"tool-name\"}}}"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you ask claude \"what's the weather today?\" but it says it doesn't have current weather information. what would tools help claude do?": {
+  "respuesta": "Access live weather data from external sources",
+  "respuestas": [
+   "Access live weather data from external sources"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you're writing a tool function for claude. what's the most important thing to include when creating the json schema?": {
+  "respuesta": "Detailed descriptions of what the tool does and its parameters",
+  "respuestas": [
+   "Detailed descriptions of what the tool does and its parameters"
+  ],
+  "verificada": true,
+  "origen": "material del curso (bloque Show Answers volcado)"
+ },
+ "you're giving your ai a long document to analyze along with your instructions. what would help the ai understand your prompt better?": {
+  "respuesta": "Use XML tags like `<document>` and `<instructions>`",
+  "respuestas": [
+   "Use XML tags like `<document>` and `<instructions>`"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you want your ai to write a book review. which approach would be more helpful?": {
+  "respuesta": "\"Write a book review that's 300 words, includes plot summary, mentions two characters, and gives a rating\"",
+  "respuestas": [
+   "\"Write a book review that's 300 words, includes plot summary, mentions two characters, and gives a rating\""
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you want to improve a prompt that isn't working well. what should you do first after writing your initial prompt?": {
+  "respuesta": "Test it and measure how well it performs",
+  "respuestas": [
+   "Test it and measure how well it performs"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "your evaluation report shows your prompt scored poorly on \"missing calorie information\" across multiple test cases. what does this tell you?": {
+  "respuesta": "You need to specifically tell your prompt to include calorie information",
+  "respuestas": [
+   "Your prompt needs to explicitly ask for calorie information",
+   "You need to specifically tell your prompt to include calorie information"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "you want your ai to detect sarcasm in social media posts, but it keeps missing sarcastic comments. what would help most?": {
+  "respuesta": "Show it examples of sarcastic posts with correct labels",
+  "respuestas": [
+   "Show it examples of sarcastic posts with correct labels"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "why is the first line of your prompt considered the most important part?": {
+  "respuesta": "It sets the stage for everything that follows and should be clear and direct",
+  "respuestas": [
+   "It sets the stage for everything that follows and should be clear and direct"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "when extended thinking is enabled, what two parts will claude's response contain?": {
+  "respuesta": "A thinking block and a text block",
+  "respuestas": [
+   "A thinking block and a text block"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you ask claude \"how many marbles are in this image?\" but get the wrong count. what's the best way to improve accuracy?": {
+  "respuesta": "Provide detailed counting steps and methodology",
+  "respuestas": [
+   "Provide detailed counting steps and methodology"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what's the minimum amount of content needed for caching to work?": {
+  "respuesta": "1024 tokens",
+  "respuestas": [
+   "1024 tokens"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "you want to cache your tool definitions. where should you place the cache breakpoint?": {
+  "respuesta": "On the last tool in your list",
+  "respuestas": [
+   "At the end of the last tool definition",
+   "On the last tool in your list"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "how does prompt caching work?": {
+  "respuesta": "It reuses computational work from previous requests",
+  "respuestas": [
+   "It reuses computational work from previous requests"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you're building an app where users ask questions about documents. what's the main benefit of enabling citations?": {
+  "respuesta": "It shows users exactly where information came from",
+  "respuestas": [
+   "It shows users exactly where information came from"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you want claude to analyze a product image for 6 different materials at once. instead of one huge prompt, what should you do?": {
+  "respuesta": "Send 6 separate requests in parallel, then combine results",
+  "respuestas": [
+   "Run parallel requests, one for each material",
+   "Send 6 separate requests in parallel, then combine results"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "you're building a system where claude creates content, then checks if it's good enough, then improves it if needed. what pattern is this?": {
+  "respuesta": "Evaluator-optimizer",
+  "respuestas": [
+   "Evaluator-optimizer"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "you're building an app where users upload photos and always get the same 4-step process to enhance them. which approach should you use?": {
+  "respuesta": "A workflow with predefined steps",
+  "respuestas": [
+   "A workflow with prompt chaining",
+   "A workflow with predefined steps"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "your app needs to handle both \"cooking recipes\" and \"workout routines\" with completely different styles. what pattern helps?": {
+  "respuesta": "Routing - categorize first, then use specialized prompts",
+  "respuestas": [
+   "Routing",
+   "Routing - categorize first, then use specialized prompts"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "what defines an agent when working with claude?": {
+  "respuesta": "A setup where Claude is given a goal and tools, then figures out how to complete the goal",
+  "respuestas": [
+   "It uses tools in a loop, deciding its own next steps toward a goal",
+   "A setup where Claude is given a goal and tools, then figures out how to complete the goal"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "what is environment inspection in the context of ai agents?": {
+  "respuesta": "Claude's ability to observe and understand the results of its actions",
+  "respuestas": [
+   "The agent examines the current state of its environment before deciding what to do next",
+   "Claude's ability to observe and understand the results of its actions"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "you're building an agent. in general, should you give it a \"refactor code\" tool or basic tools like \"read file\" and \"write file\"?": {
+  "respuesta": "Basic tools - they're more flexible",
+  "respuestas": [
+   "Basic tools like read file and write file",
+   "Basic tools - they're more flexible"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "you're building a chat app that talks to claude. where should you put your api key?": {
+  "respuesta": "On your secure server",
+  "respuestas": [
+   "On your secure server"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what is the primary purpose of a system prompt when working with claude?": {
+  "respuesta": "To provide instructions that customize Claude's tone, style, and approach",
+  "respuestas": [
+   "To provide instructions that customize Claude's tone, style, and approach"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "your users complain that your chat app feels slow because they wait 20 seconds staring at a loading spinner, then a bunch generated text suddenly appears. what feature should you add to fix this?": {
+  "respuesta": "Response streaming",
+  "respuestas": [
+   "Streaming",
+   "Response streaming"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "you want claude to generate only clean json code without any explanations or markdown formatting. which combination of techniques works best?": {
+  "respuesta": "Prefill with \"{\" and use \"```\" as a stop sequence",
+  "respuestas": [
+   "Prefill the assistant response and use a stop sequence",
+   "Prefill with \"{\" and use \"```\" as a stop sequence"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "you're building a chatbot to answer factual questions about your company. you want consistent, reliable answers every time. what temperature setting should you use?": {
+  "respuesta": "0.1 (low temperature)",
+  "respuestas": [
+   "0.1 (low temperature)"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "claude reads your message \"i love quantum physics.\" what happens first?": {
+  "respuesta": "Claude breaks the text into smaller pieces called tokens",
+  "respuestas": [
+   "The text is broken into tokens",
+   "Claude breaks the text into smaller pieces called tokens"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso Claude on Google Cloud"
+ },
+ "you ask claude \"what's the best programming language?\" but you want it to specifically argue for python. what technique helps you control this?": {
+  "respuesta": "Add an assistant message starting with \"Python is the best because\"",
+  "respuestas": [
+   "Add an assistant message starting with \"Python is the best because\""
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you're setting up a system to handle large documents. instead of using everything at once, you break documents into smaller pieces and search for relevant ones. what is this approach called?": {
+  "respuesta": "The chunking approach",
+  "respuestas": [
+   "The chunking approach"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you try to include a massive 800-page document directly in your claude prompt. what problems will you likely face?": {
+  "respuesta": "There are hard limits on text length, reduced effectiveness, and higher costs",
+  "respuestas": [
+   "There are hard limits on text length, reduced effectiveness, and higher costs"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you have an 800-page financial report and want to ask claude specific questions about it. what does rag help you do?": {
+  "respuesta": "Find and include only the relevant sections for each question",
+  "respuestas": [
+   "Find and include only the relevant sections for each question"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you send the text \"the cat is happy\" to an embedding model. what do you get back?": {
+  "respuesta": "A long list of numbers",
+  "respuestas": [
+   "A long list of numbers"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what problem does contextual retrieval solve in rag systems?": {
+  "respuesta": "It addresses the issue of chunks losing their connection to broader document context when documents are split",
+  "respuestas": [
+   "It addresses the issue of chunks losing their connection to broader document context when documents are split"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you have search results from both semantic search and bm25 search. they use different scoring systems. how do you combine them into one ranked list?": {
+  "respuesta": "Use Reciprocal Rank Fusion (RRF) based on rank positions",
+  "respuestas": [
+   "Reciprocal rank fusion",
+   "Use Reciprocal Rank Fusion (RRF) based on rank positions"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (RAG / MCP)"
+ },
+ "what is the purpose of re-ranking in rag pipelines?": {
+  "respuesta": "To use an LLM to intelligently reorder search results after initial retrieval",
+  "respuestas": [
+   "To use an LLM to intelligently reorder search results after initial retrieval"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you're searching for a specific incident id like \"inc-2023-q4-011\" in your documents. semantic search isn't finding it well. what additional search method would help?": {
+  "respuesta": "BM25 lexical search for exact term matching",
+  "respuestas": [
+   "BM25 keyword search",
+   "BM25 lexical search for exact term matching"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (RAG / MCP)"
+ },
+ "user-controlled workflows that are triggered through ui interactions like button clicks or slash commands. this definition describes which mcp primitive?": {
+  "respuesta": "Prompts",
+  "respuestas": [
+   "Prompts"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (RAG / MCP)"
+ },
+ "what does \"transport agnostic\" mean in the context of mcp communication?": {
+  "respuesta": "MCP clients and servers can communicate using different methods like HTTP, WebSockets, or standard input/output",
+  "respuestas": [
+   "MCP works over different transports such as stdio or HTTP without changing the protocol",
+   "MCP clients and servers can communicate using different methods like HTTP, WebSockets, or standard input/output"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (RAG / MCP)"
+ },
+ "what are resources in the context of mcp?": {
+  "respuesta": "App-controlled data access for UI purposes or adding context to conversations",
+  "respuestas": [
+   "Data or content a server exposes for the client to read as context",
+   "App-controlled data access for UI purposes or adding context to conversations"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (RAG / MCP)"
+ },
+ "in mcp architecture, what is the relationship between mcp clients and mcp servers?": {
+  "respuesta": "MCP Clients connect to MCP Servers that contain tools, prompts, and resources",
+  "respuestas": [
+   "Each client maintains a one-to-one connection with a server",
+   "MCP Clients connect to MCP Servers that contain tools, prompts, and resources"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (RAG / MCP)"
+ },
+ "what is model context protocol (mcp)?": {
+  "respuesta": "A communication layer that provides Claude with context and tools without requiring tedious integration code",
+  "respuestas": [
+   "An open standard protocol that connects AI applications to external tools and data sources",
+   "A communication layer that provides Claude with context and tools without requiring tedious integration code"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (RAG / MCP)"
+ },
+ "what is the mcp server inspector?": {
+  "respuesta": "A browser-based interface for testing and debugging MCP servers in real-time",
+  "respuestas": [
+   "A tool for testing and debugging MCP servers",
+   "A browser-based interface for testing and debugging MCP servers in real-time"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (RAG / MCP)"
+ },
+ "which of the following correctly describes tools in mcp?": {
+  "respuesta": "Model-controlled functions that Claude decides when to call",
+  "respuestas": [
+   "Model-controlled functions the AI can invoke to take actions",
+   "Model-controlled functions that Claude decides when to call"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso (RAG / MCP)"
+ },
+ "you're using claude to brainstorm creative story ideas and want more variety in the suggestions. what should you do?": {
+  "respuesta": "Increase the temperature setting",
+  "respuestas": [
+   "Increase the temperature setting",
+   "Increase the temperature"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you wrote a prompt and tested it twice with your own inputs. it worked perfectly both times, so you deployed it to production. what risk does this approach carry?": {
+  "respuesta": "Users will provide unexpected inputs that break the prompt",
+  "respuestas": [
+   "Users will provide unexpected inputs that break the prompt",
+   "Real users will send inputs you never tested and the prompt will fail"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you want to improve your prompt's first line. instead of \"can you help me with something about solar panels?\" what would be better?": {
+  "respuesta": "\"Write three paragraphs explaining how solar panels work\"",
+  "respuestas": [
+   "\"Write three paragraphs explaining how solar panels work\"",
+   "Start with a direct, specific instruction stating the task"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you're asking claude to analyze a large data file mixed with your instructions. what's the best way to keep things organized?": {
+  "respuesta": "Use XML tags like <data> and <instructions>",
+  "respuestas": [
+   "Use XML tags like <data> and <instructions>",
+   "Use XML tags to separate the data from the instructions"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you've written a prompt for claude and want to know if it actually works well. what should you use to get objective measurements of its performance?": {
+  "respuesta": "Prompt evaluation methods",
+  "respuestas": [
+   "Prompt evaluation methods",
+   "A prompt evaluation with graders"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you want claude to generate clean json without any markdown formatting or extra text. what's the best approach?": {
+  "respuesta": "Prefill with \"```json\" and use \"```\" as a stop sequence",
+  "respuestas": [
+   "Prefill with \"```json\" and use \"```\" as a stop sequence",
+   "Prefill the assistant response and use a stop sequence"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you ask claude \"what is pizza?\" then want to follow up with \"tell me more.\" what do you need to do so claude remembers the first question?": {
+  "respuesta": "Send both the original question and Claude's answer with your new question",
+  "respuestas": [
+   "Send both the original question and Claude's answer with your new question",
+   "Include the previous messages in the conversation history"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you need to check if an ai model's output contains valid python code. which type of grader would work best for this task?": {
+  "respuesta": "Code grader",
+  "respuestas": [
+   "Code grader"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you want claude to write a 500-word blog post with three main sections. which approach gives you the most control over the output?": {
+  "respuesta": "Provide specific guidelines about length and structure",
+  "respuestas": [
+   "Provide specific guidelines about length and structure",
+   "State the structure and length explicitly in the prompt"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you're building a chat app where claude takes 20 seconds to respond. users complain about staring at a loading screen. what's the best solution?": {
+  "respuesta": "Enable response streaming to show text as it generates",
+  "respuestas": [
+   "Enable response streaming to show text as it generates",
+   "Use streaming"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you want claude to act like a friendly teacher instead of giving generic responses. what should you use?": {
+  "respuesta": "A system prompt",
+  "respuestas": [
+   "A system prompt"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you ask claude \"is tea or coffee better?\" but want it to argue for coffee specifically. what should you add to your messages?": {
+  "respuesta": "Add an assistant message saying \"Coffee is better because\"",
+  "respuestas": [
+   "Add an assistant message saying \"Coffee is better because\"",
+   "A prefilled assistant response"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you're making your first api call to claude. which four things must you include in every request?": {
+  "respuesta": "API Key, Model, Messages, Max Tokens",
+  "respuestas": [
+   "API Key, Model, Messages, Max Tokens",
+   "The API key, the model, max_tokens and messages"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you need test cases for your prompt evaluation but don't want to write them all by hand. what's an efficient alternative mentioned in the content?": {
+  "respuesta": "Generate test cases automatically using Claude",
+  "respuestas": [
+   "Generate test cases automatically using Claude",
+   "Have Claude generate the test cases"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you're building a web app that talks to claude. where should you put your api key?": {
+  "respuesta": "On your secure server",
+  "respuestas": [
+   "On your secure server",
+   "On your backend server, never in the browser"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "what is the primary purpose of tool use in claude?": {
+  "respuesta": "To extend Claude's capabilities beyond its training data by accessing external information",
+  "respuestas": [
+   "To extend Claude's capabilities beyond its training data by accessing external information",
+   "To let Claude access external data and take actions"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you want claude to detect sarcasm in social media posts. what technique would help claude understand this tricky task?": {
+  "respuesta": "Show examples of sarcastic posts with correct labels",
+  "respuestas": [
+   "Show examples of sarcastic posts with correct labels",
+   "Provide examples of sarcastic and non-sarcastic posts"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "a user asks claude \"what's the current temperature in new york?\" without tools, what happens?": {
+  "respuesta": "Claude says it doesn't have access to current weather information",
+  "respuestas": [
+   "Claude says it doesn't have access to current weather information",
+   "Claude explains it doesn't have access to real-time data"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "a user asks \"what are the company's main risks?\" your vector database finds cosine similarity scores of 0.95 and 0.3. which chunk should be retrieved?": {
+  "respuesta": "The chunk with 0.95 similarity (more similar)",
+  "respuestas": [
+   "The chunk with 0.95 similarity (more similar)",
+   "The chunk with 0.95"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you're building a conversation loop with claude. how do you know when claude is finished and doesn't need more tools?": {
+  "respuesta": "When the stop_reason is not \"tool_use\"",
+  "respuestas": [
+   "When the stop_reason is not \"tool_use\""
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "you have a 500-page company report and want to ask claude questions about it. what does rag help you do?": {
+  "respuesta": "Include only the most relevant sections for each question",
+  "respuestas": [
+   "Include only the most relevant sections for each question",
+   "Retrieve only the relevant sections and send those to Claude"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "when claude uses a tool, what type of response structure does it return instead of simple text?": {
+  "respuesta": "Multi-block messages with text and tool use blocks",
+  "respuestas": [
+   "Multi-block messages with text and tool use blocks",
+   "A tool_use block with the tool name and input"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "which temperature setting would be most appropriate for factual responses and coding assistance?": {
+  "respuesta": "Low temperature (0.0 - 0.3)",
+  "respuestas": [
+   "Low temperature (0.0 - 0.3)"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "what is retrieval augmented generation (rag)?": {
+  "respuesta": "A technique that helps work with large documents by finding and including only the most relevant sections for each question",
+  "respuestas": [
+   "A technique that helps work with large documents by finding and including only the most relevant sections for each question",
+   "Retrieving relevant external information and adding it to the prompt"
+  ],
+  "verificada": true,
+  "origen": "opciones leídas del examen + contenido del curso"
+ },
+ "what are tokens in the context of language models?": {
+  "respuesta": "The smallest units a language model can understand",
+  "respuestas": [
+   "The smallest units a language model can understand"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what does the mmlu benchmark test?": {
+  "respuesta": "Knowledge across 57 different subjects",
+  "respuestas": [
+   "Knowledge across 57 different subjects"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what are the three main criteria for selecting an ai model?": {
+  "respuesta": "Capabilities, speed, and cost",
+  "respuestas": [
+   "Capabilities, speed, and cost"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what happens when you increase the temperature setting?": {
+  "respuesta": "Claude becomes more creative and varied in responses",
+  "respuestas": [
+   "Claude becomes more creative and varied in responses"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what is the main benefit of using streaming responses?": {
+  "respuesta": "Users see text appear immediately instead of waiting",
+  "respuestas": [
+   "Users see text appear immediately instead of waiting"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what is the main purpose of system prompts?": {
+  "respuesta": "To give Claude a specific role or behavior to follow",
+  "respuestas": [
+   "To give Claude a specific role or behavior to follow"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what does assistant message prefilling do?": {
+  "respuesta": "Provides the beginning of Claude's response to guide its direction",
+  "respuestas": [
+   "Provides the beginning of Claude's response to guide its direction"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "how does constitutional ai differ from traditional ai training?": {
+  "respuesta": "It embeds ethical principles directly into training from the start",
+  "respuestas": [
+   "It embeds ethical principles directly into training from the start"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "which claude model is best for tasks requiring maximum speed?": {
+  "respuesta": "Haiku",
+  "respuestas": [
+   "Haiku"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "what is the main difference between pre-training and fine-tuning?": {
+  "respuesta": "Pre-training creates basic language understanding, fine-tuning teaches assistant behavior",
+  "respuestas": [
+   "Pre-training creates basic language understanding, fine-tuning teaches assistant behavior"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "when does claude stop generating text with stop sequences?": {
+  "respuesta": "When it generates the stop sequence",
+  "respuestas": [
+   "When it generates the stop sequence"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "what is the main purpose of prompt evaluation?": {
+  "respuesta": "To measure objectively how well a prompt performs",
+  "respuestas": [
+   "To measure objectively how well a prompt performs"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "why don't multi-turn conversations work automatically with claude?": {
+  "respuesta": "The API doesn't store any previous messages",
+  "respuestas": [
+   "The API doesn't store any previous messages"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what does latency measure in ai systems?": {
+  "respuesta": "The time it takes to get a response",
+  "respuestas": [
+   "The time it takes to get a response"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "why are xml tags useful in ai prompts?": {
+  "respuesta": "They provide structure and clear boundaries between different sections of content in prompts",
+  "respuestas": [
+   "They provide structure and clear boundaries between different sections of content in prompts"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what is interpretability in the context of ai research?": {
+  "respuesta": "A field of research aimed at making it possible for humans to understand how AI models make decisions",
+  "respuestas": [
+   "A field of research aimed at making it possible for humans to understand how AI models make decisions"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you're building a chatbot that needs to look up current weather data. what feature would help claude access this real-time information?": {
+  "respuesta": "Tool use",
+  "respuestas": [
+   "Tool use"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "you have an 800-page financial report and want to ask an ai specific questions about it. what does rag help you do?": {
+  "respuesta": "Send only the relevant sections to the AI for each question",
+  "respuestas": [
+   "Send only the relevant sections to the AI for each question"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "claude wants to use multiple tools in a single response. what feature allows this?": {
+  "respuesta": "Batch tool use",
+  "respuestas": [
+   "Batch tool use"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "in mcp architecture, what are the three main components?": {
+  "respuesta": "Host, client and server",
+  "respuestas": [
+   "Host, client and server"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "you're building a chat app where users ask claude about their github data. without mcp, what's the main problem you'd face?": {
+  "respuesta": "You'd have to write and maintain all the GitHub tool functions yourself",
+  "respuestas": [
+   "You'd have to write and maintain all the GitHub tool functions yourself"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you're creating an mcp server tool using the python sdk. what's the easiest way to define a new tool?": {
+  "respuesta": "Use the @mcp.tool decorator on a function",
+  "respuestas": [
+   "Use the @mcp.tool decorator on a function"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "claude automatically decides to use a calculator tool when you ask \"what's 15 × 23?\" who is controlling this tool usage?": {
+  "respuesta": "Claude (the AI model) itself",
+  "respuestas": [
+   "Claude (the AI model) itself"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you just wrote an mcp server and want to test if your tools work correctly. what's the best first step?": {
+  "respuesta": "Run the MCP Inspector",
+  "respuestas": [
+   "Run the MCP Inspector"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "you want to let users type \"@document_name\" to automatically include document content in their message. should you use a tool or a resource?": {
+  "respuesta": "Resource - because the app fetches data for the UI",
+  "respuestas": [
+   "Resource - because the app fetches data for the UI"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you're running an mcp client and server on the same computer. how do they most commonly communicate with each other?": {
+  "respuesta": "Through standard input/output",
+  "respuestas": [
+   "Through standard input/output"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "your mcp client needs to find out what capabilities an mcp server offers. what message type should it send?": {
+  "respuesta": "ListToolsRequest",
+  "respuestas": [
+   "ListToolsRequest"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "your mcp server has tools, resources, and prompts. a user clicks a \"format document\" button in your app. which primitive is being used?": {
+  "respuesta": "Prompts - because the user directly triggered it",
+  "respuestas": [
+   "Prompts - because the user directly triggered it"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what is contextual retrieval?": {
+  "respuesta": "A technique that adds context to document chunks before storing them to improve search accuracy",
+  "respuestas": [
+   "A technique that adds context to document chunks before storing them to improve search accuracy"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what is a vector database in the context of rag systems?": {
+  "respuesta": "A specialized database optimized for storing, comparing, and searching through numerical embeddings",
+  "respuestas": [
+   "A specialized database optimized for storing, comparing, and searching through numerical embeddings"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you're searching for a specific incident id \"inc-2023-q4-011\" in your documents. semantic search isn't finding it well. what search method would work better?": {
+  "respuesta": "BM25 keyword search",
+  "respuestas": [
+   "BM25 keyword search"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "you send the text \"the cat sat on the mat\" to an embedding model. what do you get back?": {
+  "respuesta": "A list of about 1024 numbers representing the meaning",
+  "respuestas": [
+   "A list of about 1024 numbers representing the meaning"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you send claude the same long document twice in a row. what does prompt caching help with?": {
+  "respuesta": "It saves the computational work from processing the text in the document",
+  "respuestas": [
+   "It saves the computational work from processing the text in the document"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you've optimized your prompt but claude still isn't accurate enough on a complex task. what should you consider next?": {
+  "respuesta": "Enable extended thinking",
+  "respuestas": [
+   "Enable extended thinking"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "you want to cache a short message that's 500 tokens long. what will happen?": {
+  "respuesta": "It won't be cached because it's too short",
+  "respuestas": [
+   "It won't be cached because it's too short"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what is an effective technique for increasing claude's effectiveness with images?": {
+  "respuesta": "Using prompt engineering techniques",
+  "respuestas": [
+   "Using prompt engineering techniques"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "your mcp server needs to use claude to summarize data, but you don't want the server to handle api costs. what feature should you use?": {
+  "respuesta": "Sampling",
+  "respuestas": [
+   "Sampling"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "your mcp tool sends a \"call tool request\" and expects to get back results. what type of message pattern is this?": {
+  "respuesta": "Request-result message",
+  "respuestas": [
+   "Request-response",
+   "Request-result message"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "your streamablehttp server needs to send progress updates to clients, but http doesn't normally allow server-initiated requests. how does streamablehttp solve this?": {
+  "respuesta": "It creates Server-Sent Events (SSE) connections",
+  "respuestas": [
+   "It creates Server-Sent Events (SSE) connections",
+   "It uses Server-Sent Events to stream messages back to the client"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "a user asks claude to \"convert video.mp4\" but claude doesn't know where the file is located. what mcp feature helps solve this?": {
+  "respuesta": "Roots",
+  "respuestas": [
+   "Roots"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "you want simpler http responses without streaming, just getting the final result as plain json. which flag should you enable?": {
+  "respuesta": "json_response=True",
+  "respuestas": [
+   "The JSON response flag",
+   "json_response=True"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you're developing an mcp server locally and want the simplest way to test communication between client and server on the same machine. which transport should you use?": {
+  "respuesta": "stdio",
+  "respuestas": [
+   "stdio"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "which transport method requires both client and server to run on the same machine?": {
+  "respuesta": "stdio",
+  "respuestas": [
+   "stdio"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "what are roots in mcp?": {
+  "respuesta": "A system that tells MCP servers what files/folders it can access",
+  "respuestas": [
+   "A system that tells MCP servers what files/folders it can access",
+   "Filesystem boundaries the client exposes to the server"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what is the correct sequence for mcp connection initialization?": {
+  "respuesta": "Initialize Request → Initialize Result → Initialized Notification",
+  "respuestas": [
+   "Initialize Request → Initialize Result → Initialized Notification",
+   "Initialize request, initialize response, then initialized notification"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "what is sampling in mcp?": {
+  "respuesta": "A way for servers to access language models through connected MCP clients",
+  "respuestas": [
+   "A way for servers to access language models through connected MCP clients",
+   "The server asks the client to run an LLM completion on its behalf"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "in the linear approach to teaching ai fluency, students move through the 4ds in which order?": {
+  "respuesta": "Delegation, Description, Discernment, Diligence",
+  "respuestas": [
+   "Delegation, Description, Discernment, Diligence"
+  ],
+  "verificada": true,
+  "origen": "contenido del curso"
+ },
+ "the focused approach to teaching ai fluency involves:": {
+  "respuesta": "Deep exploration of a single D at a time",
+  "respuestas": [
+   "Deep exploration of a single D at a time"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "the delegation-diligence loop primarily addresses:": {
+  "respuesta": "Strategic and ethical decision-making",
+  "respuestas": [
+   "Strategic and ethical decision-making"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "the description-discernment loop focuses on:": {
+  "respuesta": "Tactical, iterative collaboration",
+  "respuestas": [
+   "Tactical, iterative collaboration"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "the non-linear approach to teaching ai fluency involves:": {
+  "respuesta": "Teaching all 4Ds as an interconnected network",
+  "respuestas": [
+   "Teaching all 4Ds as an interconnected network"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "outcome-based assessment primarily focuses on:": {
+  "respuesta": "What students produce through AI collaboration",
+  "respuestas": [
+   "What students produce through AI collaboration"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "process-based assessment examines:": {
+  "respuesta": "How students work with AI over time",
+  "respuestas": [
+   "How students work with AI over time"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "reflection-based assessment evaluates:": {
+  "respuesta": "Metacognitive awareness",
+  "respuestas": [
+   "Metacognitive awareness"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "as an ai fluency assignment component, peer review helps students:": {
+  "respuesta": "Develop Discernment through evaluating others' work",
+  "respuestas": [
+   "Develop Discernment through evaluating others' work"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "teaching ai fluency through scenarios can help students understand:": {
+  "respuesta": "How competencies connect in practice",
+  "respuestas": [
+   "How competencies connect in practice"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "student policy statements are powerful ai fluency assignment components because they:": {
+  "respuesta": "All of these",
+  "respuestas": [
+   "All of these"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "in engaging in conversations to integrate the 4ds into a specific discipline, it is important to ask:": {
+  "respuesta": "All of these",
+  "respuestas": [
+   "All of these"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you've learned techniques for writing better prompts, but now you want to measure how well they actually work. what do you need?": {
+  "respuesta": "Prompt evaluation methods",
+  "respuestas": [
+   "Prompt evaluation methods"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you need test cases for your prompt evaluation but don't want to write them all by hand. what's a good alternative?": {
+  "respuesta": "Use Claude to generate test cases automatically",
+  "respuestas": [
+   "Use Claude to generate test cases automatically"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you write a prompt and test it twice with your own inputs. it looks good, so you deploy it. what's the main risk?": {
+  "respuesta": "Users might provide unexpected inputs that break it",
+  "respuestas": [
+   "Users might provide unexpected inputs that break it"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "in a typical evaluation workflow, what happens right after you feed your prompts through claude?": {
+  "respuesta": "You feed the responses through a grader",
+  "respuestas": [
+   "You feed the responses through a grader"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "when claude wants to use a tool, it sends back a response that's different from usual. what does this response contain?": {
+  "respuesta": "Both text blocks and tool use blocks",
+  "respuestas": [
+   "Both text blocks and tool use blocks"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you want to create a tool that gets the current time. what type of code do you need to write?": {
+  "respuesta": "A regular Python function",
+  "respuestas": [
+   "A regular Python function"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "a user asks claude \"what day will it be 30 days from today?\" to answer this, claude needs to use multiple tools. what happens?": {
+  "respuesta": "Claude calls tools in sequence - first getting today's date, then adding 30 days",
+  "respuestas": [
+   "Claude calls tools in sequence - first getting today's date, then adding 30 days"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "sarah asks claude \"what's the weather like today?\" but claude says it doesn't have current weather data. what would solve this problem?": {
+  "respuesta": "Giving Claude access to tools that fetch current data",
+  "respuestas": [
+   "Giving Claude access to tools that fetch current data"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you're building a chat app with claude. a user asks for today's stock prices, but claude responds \"i don't have access to current stock information.\" what's the core problem?": {
+  "respuesta": "Claude only knows information from its training data",
+  "respuestas": [
+   "Claude only knows information from its training data"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you want to give claude the ability to search the web for current information. what do you need to implement?": {
+  "respuesta": "Just a simple schema - Claude handles the searching",
+  "respuestas": [
+   "Just a simple schema - Claude handles the searching"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you've written a python function for claude to use. what else do you need so claude knows how to call it?": {
+  "respuesta": "A JSON schema describing the function",
+  "respuestas": [
+   "A JSON schema describing the function"
+  ],
+  "verificada": true,
+  "origen": "opción literal leída del examen"
+ },
+ "you can describe exactly what \"done\" looks like for a task (all tests in a package pass, the type checker reports zero errors) better than you can list the steps to get there. which approach fits best?": {
+  "respuestas": [
+   "Use /goal to set a completion condition so Claude keeps working until a fast evaluator confirms it"
+  ],
+  "verificada": true,
+  "origen": "claude-code-in-action 100%",
+  "respuesta": "Use /goal to set a completion condition so Claude keeps working until a fast evaluator confirms it"
+ },
+ "your team has a hard rule: never push to main. where should it live so claude cannot skip it?": {
+  "respuestas": [
+   "In a pre-tool use hook that stops the push"
+  ],
+  "verificada": true,
+  "origen": "claude-code-in-action 100%",
+  "respuesta": "In a pre-tool use hook that stops the push"
+ },
+ "you have typed the same multi-step procedure to claude more than once, and it includes long reference material and a helper script. how should you package it?": {
+  "respuestas": [
+   "Make a skill, keep skill.md lean, and push depth into reference.md and scripts Claude runs when needed"
+  ],
+  "verificada": true,
+  "origen": "claude-code-in-action 100%",
+  "respuesta": "Make a skill, keep skill.md lean, and push depth into reference.md and scripts Claude runs when needed"
+ },
+ "you ask claude in auto mode to refactor authentication and it writes broken authentication. what actually happens, and what should you add?": {
+  "respuestas": [
+   "The classifier waves it through because broken is not dangerous; pair auto mode with a stop hook that runs your tests"
+  ],
+  "verificada": true,
+  "origen": "claude-code-in-action 100%",
+  "respuesta": "The classifier waves it through because broken is not dangerous; pair auto mode with a stop hook that runs your tests"
+ },
+ "you want a dependency audit to run every morning at 9am with no machine of yours staying on and no workflow file to maintain. which tool fits?": {
+  "respuestas": [
+   "A routine that runs on Anthropic infrastructure on a cron trigger"
+  ],
+  "verificada": true,
+  "origen": "claude-code-in-action 100%",
+  "respuesta": "A routine that runs on Anthropic infrastructure on a cron trigger"
+ },
+ "your team wants claude to review every pull request with inline comments and nothing to build or host, and you do not need it to approve or block the pr. which option fits?": {
+  "respuestas": [
+   "Managed code review through the Claude GitHub app"
+  ],
+  "verificada": true,
+  "origen": "claude-code-in-action 100%",
+  "respuesta": "Managed code review through the Claude GitHub app"
+ },
+ "a job ran unattended in ci and reports success. what is the most reliable first move before you ship it?": {
+  "respuestas": [
+   "Start from the diff itself and git diff, and confirm tests actually passed rather than were claimed"
+  ],
+  "verificada": true,
+  "origen": "claude-code-in-action 100%",
+  "respuesta": "Start from the diff itself and git diff, and confirm tests actually passed rather than were claimed"
+ },
+ "a community plugin gives you a skill you want. what should you do before enabling it?": {
+  "respuestas": [
+   "Inspect every hook, agent, and MCP server it adds, because a plugin runs code with your privileges and its hooks fire on every matching call"
+  ],
+  "verificada": true,
+  "origen": "claude-code-in-action 100%",
+  "respuesta": "Inspect every hook, agent, and MCP server it adds, because a plugin runs code with your privileges and its hooks fire on every matching call"
+ },
+ "which of these tasks is the best fit for cowork?": {
+  "respuestas": [
+   "Reading a folder of last month's meeting notes and saving a one-page summary back into it"
+  ],
+  "verificada": true,
+  "origen": "claude-cowork 100%",
+  "respuesta": "Reading a folder of last month's meeting notes and saving a one-page summary back into it"
+ },
+ "when you connect a working folder in cowork, what can claude do with it?": {
+  "respuestas": [
+   "Read and write files in that folder (and it asks before deleting)"
+  ],
+  "verificada": true,
+  "origen": "claude-cowork 100%",
+  "respuesta": "Read and write files in that folder (and it asks before deleting)"
+ },
+ "a good cowork prompt typically names which three things?": {
+  "respuestas": [
+   "The deliverable you want, the inputs to use, and any nuance like audience or format"
+  ],
+  "verificada": true,
+  "origen": "claude-cowork 100%",
+  "respuesta": "The deliverable you want, the inputs to use, and any nuance like audience or format"
+ },
+ "claude is partway through a task when you realize it's working from the wrong template. what's the best next step?": {
+  "respuestas": [
+   "Tell Claude now and direct it to the right template"
+  ],
+  "verificada": true,
+  "origen": "claude-cowork 100%",
+  "respuesta": "Tell Claude now and direct it to the right template"
+ },
+ "in the default permission mode, which of these actions will claude pause and ask you to confirm before taking?": {
+  "respuestas": [
+   "Sending a Slack message it drafted"
+  ],
+  "verificada": true,
+  "origen": "claude-cowork 100%",
+  "respuesta": "Sending a Slack message it drafted"
+ },
+ "what's the main difference between global instructions and project instructions in cowork?": {
+  "respuestas": [
+   "Global instructions apply to every Cowork session; project instructions apply only inside that project"
+  ],
+  "verificada": true,
+  "origen": "claude-cowork 100%",
+  "respuesta": "Global instructions apply to every Cowork session; project instructions apply only inside that project"
+ },
+ "you've set up a scheduled task while running cowork in the cloud. what needs to be true for it to run at its set time?": {
+  "respuestas": [
+   "Nothing more — the task runs in the cloud at its set time"
+  ],
+  "verificada": true,
+  "origen": "claude-cowork 100%",
+  "respuesta": "Nothing more — the task runs in the cloud at its set time"
+ },
+ "which statement best describes the relationship between skills and plugins?": {
+  "respuestas": [
+   "A plugin bundles skills together so they can be installed in one package"
+  ],
+  "verificada": true,
+  "origen": "claude-cowork 100%",
+  "respuesta": "A plugin bundles skills together so they can be installed in one package"
+ },
+ "what does claude in chrome add to cowork?": {
+  "respuestas": [
+   "It lets Claude read and act on web pages in your browser"
+  ],
+  "verificada": true,
+  "origen": "claude-cowork 100%",
+  "respuesta": "It lets Claude read and act on web pages in your browser"
+ },
+ "what's the recommended habit before you send, publish, or act on something claude produced in cowork?": {
+  "respuestas": [
+   "Review it yourself — Claude accelerates the work, but you own the judgment"
+  ],
+  "verificada": true,
+  "origen": "claude-cowork 100%",
+  "respuesta": "Review it yourself — Claude accelerates the work, but you own the judgment"
+ },
+ "claude code works as an ai agent. what is an ai agent?": {
+  "respuesta": "AI that takes action to complete goals",
+  "respuestas": [
+   "AI that takes action to complete goals"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what happens when claude code reaches its context window limit?": {
+  "respuesta": "It automatically compacts your conversation to free up space",
+  "respuestas": [
+   "It automatically compacts your conversation to free up space"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is the recommended workflow for using claude code effectively?": {
+  "respuesta": "Explore → Plan → Code → Commit",
+  "respuestas": [
+   "Explore → Plan → Code → Commit"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "how does claude code use the claude.md file?": {
+  "respuesta": "It reads it automatically at the start of every session",
+  "respuestas": [
+   "It reads it automatically at the start of every session"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "which three parameters does the messages.create call itself require?": {
+  "respuesta": "A model, a max tokens limit, and a list of messages",
+  "respuestas": [
+   "A model, a max tokens limit, and a list of messages"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "when claude decides to use a tool, who actually executes it?": {
+  "respuesta": "Your code runs it and sends the result back",
+  "respuestas": [
+   "Your code runs it and sends the result back"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "why does context management matter for long-running agents?": {
+  "respuesta": "The window is finite and you pay for what's in it — so the goal is fitting the right things in",
+  "respuestas": [
+   "The window is finite and you pay for what's in it — so the goal is fitting the right things in"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "which jobs are the best fit for a managed agent?": {
+  "respuesta": "Long-running, sandboxed, or background work",
+  "respuestas": [
+   "Long-running, sandboxed, or background work"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "in claude code, which slash command invokes the built-in skill for working with the claude api?": {
+  "respuesta": "<code>/claude-api</code>",
+  "respuestas": [
+   "<code>/claude-api</code>"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want to send a request to claude's api. what's the minimum information you must include?": {
+  "respuesta": "API key, model name, messages, and max tokens",
+  "respuestas": [
+   "API key, model name, messages, and max tokens"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you ask claude \"what is pizza?\" and it answers. then you ask \"what toppings are popular?\" but claude doesn't understand what you're referring to. what's the problem?": {
+  "respuesta": "Claude doesn't remember previous messages",
+  "respuestas": [
+   "Claude doesn't remember previous messages"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "when claude processes your text, what's the first thing it does?": {
+  "respuesta": "Breaks it into smaller chunks called tokens",
+  "respuestas": [
+   "Breaks it into smaller chunks called tokens"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "users complain your chat app feels slow because they wait 20 seconds staring at a loading spinner, then all the generated text appears at once. what can fix this?": {
+  "respuesta": "Enabling response streaming",
+  "respuestas": [
+   "Enabling response streaming"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're building a web app that talks to claude. where should you store your api key?": {
+  "respuesta": "On your server, hidden from users",
+  "respuestas": [
+   "On your server, hidden from users"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "you're building a math tutor bot. you want claude to give hints instead of direct answers. what should you use?": {
+  "respuesta": "A system prompt explaining the tutor role",
+  "respuestas": [
+   "A system prompt explaining the tutor role"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want claude to give very predictable, consistent answers for a factual q&a app. what temperature setting should you use?": {
+  "respuesta": "Low temperature (near 0.0)",
+  "respuestas": [
+   "Low temperature (near 0.0)"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're building an app that needs clean json from claude with no extra text or formatting. how do you get just the raw json?": {
+  "respuesta": "Combine prefilled messages and stop sequences",
+  "respuestas": [
+   "Combine prefilled messages and stop sequences"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you wrote a prompt and tested it once. it worked fine, so you deployed it to production. what's the main risk with this approach?": {
+  "respuesta": "Users will provide unexpected inputs that break it",
+  "respuestas": [
+   "Users will provide unexpected inputs that break it"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you need test cases for your prompt evaluation. you have two options: write them by hand or use claude to generate them. which model should you use for generation?": {
+  "respuesta": "A faster model like Haiku",
+  "respuestas": [
+   "A faster model like Haiku"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're running a prompt evaluation workflow. you've used claude to generate some responses. what's the next step?": {
+  "respuesta": "Feed the responses through a grader",
+  "respuestas": [
+   "Feed the responses through a grader"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want to measure how well your prompts actually work in practice. which approach should you focus on?": {
+  "respuesta": "Prompt evaluation methods",
+  "respuestas": [
+   "Prompt evaluation methods"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're using a model grader to evaluate responses. to get better scores than just middle-range numbers, what should you ask for alongside the score?": {
+  "respuesta": "Strengths, weaknesses, and reasoning",
+  "respuestas": [
+   "Strengths, weaknesses, and reasoning"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "which type of grader uses another ai model to assess the quality of outputs?": {
+  "respuesta": "Model grader",
+  "respuestas": [
+   "Model grader"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want claude to create a workout plan. which opening line works better?": {
+  "respuesta": "\"Create a 30-minute workout plan for beginners\"",
+  "respuestas": [
+   "\"Create a 30-minute workout plan for beginners\""
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "claude keeps missing sarcastic comments when analyzing social media posts. what's the best way to fix this?": {
+  "respuesta": "Provide examples showing sarcastic posts labeled as negative",
+  "respuestas": [
+   "Provide examples showing sarcastic posts labeled as negative"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is prompt engineering?": {
+  "respuesta": "Improving a prompt to get more reliable, higher-quality outputs",
+  "respuestas": [
+   "Improving a prompt to get more reliable, higher-quality outputs"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "\"providing sample input/output pairs to guide ai responses\" describes which prompt engineering technique?": {
+  "respuesta": "One-shot or multi-shot prompting",
+  "respuestas": [
+   "One-shot or multi-shot prompting"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is the main purpose of using xml tags in prompts?": {
+  "respuesta": "To add structure and clarity, especially when including large amounts of content",
+  "respuestas": [
+   "To add structure and clarity, especially when including large amounts of content"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "how can you tell if claude wants to make another tool call in a conversation?": {
+  "respuesta": "Look at the stop_reason field for \"tool_use\"",
+  "respuestas": [
+   "Look at the stop_reason field for \"tool_use\""
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "when claude uses a tool, what type of message structure does it return?": {
+  "respuesta": "Multi-block messages with text and tool use blocks",
+  "respuestas": [
+   "Multi-block messages with text and tool use blocks"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is the main purpose of a json schema when working with claude tools?": {
+  "respuesta": "To tell Claude what arguments your function expects and how to use it",
+  "respuestas": [
+   "To tell Claude what arguments your function expects and how to use it"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what problem does the batch tool solve?": {
+  "respuesta": "It reduces the number of back-and-forth communications when multiple tools are needed",
+  "respuestas": [
+   "It reduces the number of back-and-forth communications when multiple tools are needed"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is the correct sequence of steps in the tool use workflow?": {
+  "respuesta": "Initial Request → Tool Request → Data Retrieval → Final Response",
+  "respuestas": [
+   "Initial Request → Tool Request → Data Retrieval → Final Response"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "claude can only access information from its training data by default. what allows claude to get current, real-time information?": {
+  "respuesta": "Using tools to access external information",
+  "respuestas": [
+   "Using tools to access external information"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what makes claude's built-in text editor and web search tools different from custom tools?": {
+  "respuesta": "Claude provides the schema, but you may still need to implement some functionality",
+  "respuestas": [
+   "Claude provides the schema, but you may still need to implement some functionality"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is the files api used for?": {
+  "respuesta": "Uploading files ahead of time and referencing them later instead of encoding them directly in messages",
+  "respuestas": [
+   "Uploading files ahead of time and referencing them later instead of encoding them directly in messages"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're making many requests with the same large system prompt. what feature would make your requests faster and cheaper?": {
+  "respuesta": "Prompt caching",
+  "respuestas": [
+   "Prompt caching"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is the primary purpose of citations in claude?": {
+  "respuesta": "To create a clear trail from Claude's response back to specific parts of source documents",
+  "respuestas": [
+   "To create a clear trail from Claude's response back to specific parts of source documents"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "when claude uses extended thinking, what two parts do you get in the response?": {
+  "respuesta": "Reasoning process and final answer",
+  "respuestas": [
+   "Reasoning process and final answer"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want claude to analyze a pdf document. what's the main difference from sending an image?": {
+  "respuesta": "Change the type to \"document\" and media_type to \"application/pdf\"",
+  "respuestas": [
+   "Change the type to \"document\" and media_type to \"application/pdf\""
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is a key limitation of claude's code execution tool?": {
+  "respuesta": "It has no network access and runs in an isolated Docker container",
+  "respuestas": [
+   "It has no network access and runs in an isolated Docker container"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want to cache your system prompt. what's the minimum requirement for caching to work?": {
+  "respuesta": "The content must be at least 1024 tokens long",
+  "respuestas": [
+   "The content must be at least 1024 tokens long"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you've created an mcp server and want to test your tools before connecting them to claude. what's the best way to do this?": {
+  "respuesta": "Use the MCP Inspector in your browser",
+  "respuestas": [
+   "Use the MCP Inspector in your browser"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're building a document system where users can type @document_name to reference files. what mcp feature is best for exposing the document contents?": {
+  "respuesta": "Resources",
+  "respuestas": [
+   "Resources"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "your mcp server and client need to communicate. what's the most common way they connect during development?": {
+  "respuesta": "Through standard input/output on the same machine",
+  "respuestas": [
+   "Through standard input/output on the same machine"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're building a chatbot that needs to access github data. what is the main benefit of using mcp instead of writing your own github integration?": {
+  "respuesta": "MCP handles the tool definitions and execution for you",
+  "respuestas": [
+   "MCP handles the tool definitions and execution for you"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want to create a tool for your mcp server that reads document contents. using the python sdk, what's the easiest way to define this tool?": {
+  "respuesta": "Use the @mcp.tool decorator on a function",
+  "respuestas": [
+   "Use the @mcp.tool decorator on a function"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want to provide users with a high-quality, pre-tested instruction for formatting documents. what mcp feature should you use?": {
+  "respuesta": "Prompts",
+  "respuestas": [
+   "Prompts"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're building an agent with tools. which approach will give claude the most flexibility to handle unexpected requests?": {
+  "respuesta": "Provide abstract tools like \"read_file\", \"write_file\", and \"run_command\"",
+  "respuestas": [
+   "Provide abstract tools like \"read_file\", \"write_file\", and \"run_command\""
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want claude to write a report, then check if it's good enough, and improve it if needed. what pattern are you using?": {
+  "respuesta": "Evaluator-Optimizer pattern",
+  "respuestas": [
+   "Evaluator-Optimizer pattern"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "your app generates different types of social media content. programming topics need educational scripts, while sports topics need entertainment-focused content. what pattern should you use?": {
+  "respuesta": "Route requests to specialized processing pipelines",
+  "respuestas": [
+   "Route requests to specialized processing pipelines"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "claude keeps ignoring some of your rules when you give it a long prompt with many requirements. what workflow approach would help?": {
+  "respuesta": "Chain the task into focused sequential steps",
+  "respuestas": [
+   "Chain the task into focused sequential steps"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you need claude to recommend the best material for a part by considering metal, plastic, ceramic, and wood options. each material has different criteria. what's the best approach?": {
+  "respuesta": "Send separate requests for each material type in parallel",
+  "respuestas": [
+   "Send separate requests for each material type in parallel"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you need to choose between a workflow and an agent for your app. reliability and predictable results are most important to you. which should you pick?": {
+  "respuesta": "Use a workflow since it's more reliable and testable",
+  "respuestas": [
+   "Use a workflow since it's more reliable and testable"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're building an app where users upload photos of damaged car parts and always get repair cost estimates. you know exactly what steps are needed each time. what should you use?": {
+  "respuesta": "A workflow with predetermined steps",
+  "respuestas": [
+   "A workflow with predetermined steps"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is a tool function in the context of claude's tool use system?": {
+  "respuesta": "A plain function that gets executed when Claude needs additional information or needs to perform an action",
+  "respuestas": [
+   "A plain function that gets executed when Claude needs additional information or needs to perform an action"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're improving a prompt that isn't working well. what should you do after applying a prompt engineering technique?": {
+  "respuesta": "Use prompt evaluations to see if it actually improved",
+  "respuestas": [
+   "Use prompt evaluations to see if it actually improved"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're making a math tutoring app. you want claude to give hints instead of direct answers. what should you use?": {
+  "respuesta": "A system prompt explaining Claude should act like a tutor",
+  "respuestas": [
+   "A system prompt explaining Claude should act like a tutor"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want claude to write very creative, unpredictable stories. what temperature setting should you use?": {
+  "respuesta": "1.0 (very high)",
+  "respuestas": [
+   "1.0 (very high)"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want an ai to write a product description. which opening is most clear and direct?": {
+  "respuesta": "\"Write a product description for running shoes.\"",
+  "respuestas": [
+   "\"Write a product description for running shoes.\""
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want to measure how well your ai prompt actually works in practice. which approach should you focus on?": {
+  "respuesta": "Prompt evaluation with automated testing",
+  "respuestas": [
+   "Prompt evaluation with automated testing"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is a model grader in prompt evaluation?": {
+  "respuesta": "Another AI model used to assess the quality of outputs",
+  "respuestas": [
+   "Another AI model used to assess the quality of outputs"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're asking an ai to analyze both customer reviews and sales data. how should you organize this information in your prompt?": {
+  "respuesta": "Use XML tags like <reviews> and <sales_data> to separate them",
+  "respuestas": [
+   "Use XML tags like <reviews> and <sales_data> to separate them"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want to send a message to claude through the api. which four things do you absolutely need to include?": {
+  "respuesta": "API key, model name, messages, and max tokens",
+  "respuestas": [
+   "API key, model name, messages, and max tokens"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're running a prompt evaluation. after getting responses from claude, what's the next step in the typical workflow?": {
+  "respuesta": "Feed the responses through a grader for scoring",
+  "respuestas": [
+   "Feed the responses through a grader for scoring"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you ask claude \"what is pizza?\" and it answers. then you ask \"what toppings are popular?\" but claude doesn't know you're still talking about pizza. what's the problem?": {
+  "respuesta": "You need to send the whole conversation history with each request",
+  "respuestas": [
+   "You need to send the whole conversation history with each request"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is the primary difference between an mcp server and an mcp client in terms of their roles?": {
+  "respuesta": "MCP Servers contain tools, prompts, and resources while MCP Clients act as the communication bridge to access those tools",
+  "respuestas": [
+   "MCP Servers contain tools, prompts, and resources while MCP Clients act as the communication bridge to access those tools"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "which of the following best describes computer use in the context of claude?": {
+  "respuesta": "A capability that lets Claude interact directly with desktop environments like a human would",
+  "respuestas": [
+   "A capability that lets Claude interact directly with desktop environments like a human would"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what is the primary purpose of a batch tool in claude's tool system?": {
+  "respuesta": "To accept multiple tool calls and execute them simultaneously",
+  "respuestas": [
+   "To accept multiple tool calls and execute them simultaneously"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "claude responds to your request with both explanatory text and a tool use block. what type of message structure is this?": {
+  "respuesta": "A multi-block message with different content types",
+  "respuestas": [
+   "A multi-block message with different content types"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're building an app where users need to verify information claude provides from documents. what feature should you enable?": {
+  "respuesta": "Citations",
+  "respuestas": [
+   "Citations"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "when should you choose workflows over agents for handling user tasks?": {
+  "respuesta": "When you can picture the exact flow or steps Claude should go through to solve a problem",
+  "respuestas": [
+   "When you can picture the exact flow or steps Claude should go through to solve a problem"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "which of the following best describes why environment inspection is crucial for ai agents?": {
+  "respuesta": "It allows agents to observe and understand the results of their actions",
+  "respuestas": [
+   "It allows agents to observe and understand the results of their actions"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you keep sending the same long document to claude with different questions. how can you make this faster and cheaper?": {
+  "respuesta": "Use prompt caching with cache breakpoints",
+  "respuestas": [
+   "Use prompt caching with cache breakpoints"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're building an mcp client to connect your application to an mcp server. what are the two main components you need?": {
+  "respuesta": "An MCP Client class and a Client Session",
+  "respuestas": [
+   "An MCP Client class and a Client Session"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "your mcp client needs to find out what tools are available from an mcp server. what message type should it send?": {
+  "respuesta": "ListToolsRequest",
+  "respuestas": [
+   "ListToolsRequest"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you've built an mcp server and want to test if your tools work correctly before connecting to a full application. what's the easiest way to do this?": {
+  "respuesta": "Use the built-in MCP Inspector with `mcp dev mcp_server.py`",
+  "respuestas": [
+   "Use the built-in MCP Inspector with `mcp dev mcp_server.py`"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're deciding how to implement a new feature in your mcp server. users should be able to click a button to trigger a \"summarize document\" workflow. which mcp primitive should you use?": {
+  "respuesta": "Prompts - because users control when to start the workflow",
+  "respuestas": [
+   "Prompts - because users control when to start the workflow"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you're using the python mcp sdk to create a tool that reads files. what's the easiest way to define this tool?": {
+  "respuesta": "Use the @mcp.tool() decorator on a Python function",
+  "respuestas": [
+   "Use the @mcp.tool() decorator on a Python function"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "you want to create a resource that fetches different documents based on their id, like docs://documents/report.pdf. what type of resource should you use?": {
+  "respuesta": "A templated resource with parameters in the URI",
+  "respuestas": [
+   "A templated resource with parameters in the URI"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what does the pretraining stage produce?": {
+  "respuesta": "A document completer that predicts what comes next",
+  "respuestas": [
+   "A document completer that predicts what comes next"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "which of these is a \"fingerprint\" left by fine-tuning?": {
+  "respuesta": "Sycophancy — agreeing too readily under pushback",
+  "respuestas": [
+   "Sycophancy — agreeing too readily under pushback"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "when generative ai writes an answer, what is it fundamentally doing?": {
+  "respuesta": "Predicting what text comes next, one fragment at a time",
+  "respuestas": [
+   "Predicting what text comes next, one fragment at a time"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "where does hallucination tend to concentrate?": {
+  "respuesta": "In specific details like names, dates, citations, and URLs",
+  "respuestas": [
+   "In specific details like names, dates, citations, and URLs"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what does the \"knowledge cutoff\" mean?": {
+  "respuesta": "The model's training data has a fixed end date — it knows nothing after that unless it connects to another source",
+  "respuestas": [
+   "The model's training data has a fixed end date — it knows nothing after that unless it connects to another source"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "how is working memory different from the other three properties?": {
+  "respuesta": "It has a cliff rather than a gradual degradation — things work until they suddenly don't",
+  "respuestas": [
+   "It has a cliff rather than a gradual degradation — things work until they suddenly don't"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what does \"letter over spirit\" describe?": {
+  "respuesta": "The model following an instruction literally but missing what you actually meant",
+  "respuestas": [
+   "The model following an instruction literally but missing what you actually meant"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "a hallucinated citation (a paper that doesn't exist) is which two properties colliding?": {
+  "respuesta": "Next Token Prediction + Knowledge",
+  "respuestas": [
+   "Next Token Prediction + Knowledge"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "what does \"calibrated trust\" mean in practice?": {
+  "respuesta": "Locating your task on each property's continuum and adjusting your habits accordingly",
+  "respuestas": [
+   "Locating your task on each property's continuum and adjusting your habits accordingly"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "how do the four properties relate to the 4d framework?": {
+  "respuesta": "The 4Ds are what you do; the properties are what you're responding to when you do them",
+  "respuestas": [
+   "The 4Ds are what you do; the properties are what you're responding to when you do them"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "when deciding whether to use ai for a task, what question should guide your decision?": {
+  "respuesta": "\"Should AI do this?\"",
+  "respuestas": [
+   "\"Should AI do this?\""
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "according to the builder's toolkit, where is ai weakest?": {
+  "respuesta": "Empathy, Judgment, and Shipping",
+  "respuestas": [
+   "Empathy, Judgment, and Shipping"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "which of the following is safe to delegate to ai?": {
+  "respuesta": "Generating a first draft of implementation code",
+  "respuestas": [
+   "Generating a first draft of implementation code"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "the course's recommended starting position for any creative project is:": {
+  "respuesta": "No AI, then let analysis determine whether and how to opt in",
+  "respuestas": [
+   "No AI, then let analysis determine whether and how to opt in"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "in the creative value lens, authenticity ties most directly to which dimension?": {
+  "respuesta": "Expression",
+  "respuestas": [
+   "Expression"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "according to the production lens, what does technology usually do to production constraints (time, effort, and resources)?": {
+  "respuesta": "Rearranges them rather than simply removing them",
+  "respuestas": [
+   "Rearranges them rather than simply removing them"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-2026-09-13"
+ },
+ "which of these does the course name as pitfalls of ai use? select all that apply.": {
+  "multi": [
+   "Reaching for AI when you don't yet know what you want",
+   "Skill atrophy — losing abilities you stop practicing",
+   "Convergence — work drifting toward the same AI-shaped default"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-academy-foto"
+ },
+ "which of the following best describes claude's capabilities?": {
+  "respuesta": "Claude is an AI assistant that can help with writing, research, coding, problem-solving, and more",
+  "respuestas": [
+   "Claude is an AI assistant that can help with writing, research, coding, problem-solving, and more"
+  ],
+  "verificada": true,
+  "origen": "claude101-show-answers"
+ },
+ "which three elements make up an effective prompt?": {
+  "respuesta": "Introduction, body, and conclusion",
+  "respuestas": [
+   "Introduction, body, and conclusion"
+  ],
+  "verificada": true,
+  "origen": "claude101-show-answers"
+ },
+ "if claude's response is too generic, what should you try?": {
+  "respuesta": "Switch to a different AI model",
+  "respuestas": [
+   "Switch to a different AI model"
+  ],
+  "verificada": true,
+  "origen": "claude101-show-answers"
+ },
+ "what happens when your project knowledge base approaches context limits?": {
+  "respuesta": "Claude stops accepting new file uploads",
+  "respuestas": [
+   "Claude stops accepting new file uploads"
+  ],
+  "verificada": true,
+  "origen": "claude101-show-answers"
+ },
+ "what can you do with a published artifact?": {
+  "respuesta": "Share it with anyone via a link—they can view and interact with it, even without a Claude account",
+  "respuestas": [
+   "Share it with anyone via a link—they can view and interact with it, even without a Claude account"
+  ],
+  "verificada": true,
+  "origen": "claude101-show-answers"
+ },
+ "what is the primary difference between projects and skills?": {
+  "respuesta": "Projects are free, skills require a paid plan",
+  "respuestas": [
+   "Projects are free, skills require a paid plan"
+  ],
+  "verificada": true,
+  "origen": "claude101-show-answers"
+ },
+ "what data can claude access through connectors?": {
+  "respuesta": "Only data created in the last 30 days",
+  "respuestas": [
+   "Only data created in the last 30 days"
+  ],
+  "verificada": true,
+  "origen": "claude101-show-answers"
+ },
+ "who needs to complete the initial setup before team members can use enterprise search?": {
+  "respuesta": "Anthropic support team",
+  "respuestas": [
+   "Anthropic support team"
+  ],
+  "verificada": true,
+  "origen": "claude101-show-answers"
+ },
+ "which of the following tasks is a good candidate for research?": {
+  "respuesta": "Conducting comprehensive market analysis",
+  "respuestas": [
+   "Conducting comprehensive market analysis"
+  ],
+  "verificada": true,
+  "origen": "claude101-show-answers"
+ },
+ "which claude product is best suited for navigating an unfamiliar codebase and automating development tasks?": {
+  "respuesta": "Claude in Chrome",
+  "respuestas": [
+   "Claude in Chrome"
+  ],
+  "verificada": true,
+  "origen": "claude101-show-answers"
+ },
+ "which of the following statements about ai are true? select all that apply.": {
+  "multi": [
+   "AI can produce inaccurate information confidently — a behavior known as hallucination",
+   "AI works best when given specific context and clear instructions about your goals",
+   "AI has a knowledge cutoff and may not have information about recent events"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "what is the best approach when ai generates a draft for your business?": {
+  "respuesta": "Apply Discernment — verify accuracy and make sure it reflects your voice and business",
+  "respuestas": [
+   "Apply Discernment — verify accuracy and make sure it reflects your voice and business"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "before sharing business data with an ai tool, what should you do first?": {
+  "respuesta": "Remove or anonymize sensitive information like customer names and payment details",
+  "respuestas": [
+   "Remove or anonymize sensitive information like customer names and payment details"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "which of the following help you build confidence when using ai for data analysis? select all that apply.": {
+  "multi": [
+   "Flag any numbers or conclusions that go beyond what your data actually shows",
+   "Compare AI's findings against your own observations of the same data",
+   "Test AI against data where you already know the correct results"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "what is the main purpose of an ai use policy for your business?": {
+  "respuesta": "To create a shared agreement about what AI is used for, what stays human, and how your team stays accountable",
+  "respuestas": [
+   "To create a shared agreement about what AI is used for, what stays human, and how your team stays accountable"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "which of the following are true about ai-generated code? select all that apply.": {
+  "multi": [
+   "AI can generate code that runs but misses the intended problem",
+   "AI has predictable blind spots like concurrency, caching, and race conditions",
+   "AI may recommend libraries or APIs that are outdated or don’t exist"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "what is the correct order of the description chain?": {
+  "respuesta": "User voice → product requirement → technical spec → AI instruction",
+  "respuestas": [
+   "User voice → product requirement → technical spec → AI instruction"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "\"the code works, but no one wants to use it\" is a failure at which discernment lens?": {
+  "respuesta": "Experience Quality",
+  "respuestas": [
+   "Experience Quality"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "before shipping something ai helped build, what does diligence require?": {
+  "respuesta": "Understanding what the code does and being accountable for the outcome",
+  "respuestas": [
+   "Understanding what the code does and being accountable for the outcome"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "why should you write acceptance tests before writing any code?": {
+  "respuesta": "To give both you and AI a shared definition of “done” from the start",
+  "respuestas": [
+   "To give both you and AI a shared definition of “done” from the start"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "which best describes how the inner and outer loops relate?": {
+  "respuesta": "They're interdependent — you move between them constantly, and one moment can involve both",
+  "respuestas": [
+   "They're interdependent — you move between them constantly, and one moment can involve both"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "after articulating your practice across product, process, and performance, you turn those descriptions into standards. a good standard is one that:": {
+  "respuesta": "A peer who isn't you could apply to work that isn't yours",
+  "respuestas": [
+   "A peer who isn't you could apply to work that isn't yours"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "in delegation, what comes first — before choosing a tool or handing off a task?": {
+  "respuesta": "Problem Awareness: getting clear on the problem you're solving and whether AI belongs",
+  "respuestas": [
+   "Problem Awareness: getting clear on the problem you're solving and whether AI belongs"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "before sharing a finished piece that ai helped create, what does diligence ask of you?": {
+  "respuesta": "Judge it against your own standards, stand behind it as the author, and be transparent about where AI was involved",
+  "respuestas": [
+   "Judge it against your own standards, stand behind it as the author, and be transparent about where AI was involved"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ },
+ "the five ai roles (no ai, consultant, tool builder, co-creator, medium) are divided by one question:": {
+  "respuesta": "Does AI-generated material appear in the final work the audience encounters?",
+  "respuestas": [
+   "Does AI-generated material appear in the final work the audience encounters?"
+  ],
+  "verificada": false,
+  "origen": "bootstrap-fluency-2026-09-13"
+ }
+}
