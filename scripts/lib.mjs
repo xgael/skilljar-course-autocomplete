@@ -164,17 +164,27 @@ export async function reiniciar(page) {
   for (let intento = 0; intento < 3; intento++) {
     if ((await progreso(page))[0] === 1) return true;
 
-    await page.evaluate(() => {
-      const buscar = raiz => {
-        for (const el of raiz.querySelectorAll('*')) {
-          if (el.shadowRoot && buscar(el.shadowRoot)) return true;
-          const t = (el.innerText || "").trim();
-          if (/^take this again$/i.test(t) && el.children.length <= 1) { el.click(); return true; }
-        }
-        return false;
-      };
-      return buscar(document);
-    });
+    // La Academy envuelve "Take this again" en spans dentro de un <a>
+    // (div.redirect_to_start_page > a > span > span). Clicar el span interno NO
+    // dispara la navegación del ancla: hay que clicar el <a>.
+    const tta = page.locator('div.redirect_to_start_page a, a:has-text("Take this again")').first();
+    if (await tta.count()) {
+      await clic(tta);
+    } else {
+      await page.evaluate(() => {
+        const buscar = raiz => {
+          for (const el of raiz.querySelectorAll('*')) {
+            if (el.shadowRoot && buscar(el.shadowRoot)) return true;
+            const t = (el.innerText || "").trim();
+            if (/^take this again$/i.test(t) && el.children.length <= 1) {
+              (el.closest('a') || el).click(); return true;
+            }
+          }
+          return false;
+        };
+        return buscar(document);
+      });
+    }
     await esperarExamenListo(page, 8000);
 
     if (!(await progreso(page))[0]) {
@@ -200,26 +210,65 @@ export async function reiniciar(page) {
  * OJO: el examen vive en shadow DOM, así que hay que leerlo con locators de Playwright.
  * `document.querySelectorAll` desde `page.evaluate` devuelve vacío.
  */
+// Una pregunta es de radios (única) O de checkboxes (multi, "select all that apply").
+// NUNCA mezclar: si hay radios, los checkboxes visibles son ajenos al examen (UI del
+// portal) y meterlos corría los índices — el punto medio de las encuestas caía en un
+// checkbox suelto y la escala quedaba "vacía".
+function inputsPregunta(page) {
+  return (async () => {
+    const radios = page.locator('input[type=radio]');
+    if (await radios.count()) return radios;
+    return page.locator('input[type=checkbox]:not([name="open-faqs"]):not([name="remember"])');
+  })();
+}
+
 export async function opciones(page) {
-  const radios = page.locator('input[type=radio]');
-  const n = await radios.count();
+  const inputs = await inputsPregunta(page);
+  const n = await inputs.count();
   const out = [];
   for (let i = 0; i < n; i++) {
     out.push({
       i,
-      texto: (await radios.nth(i).evaluate(e => (e.closest('label') || e.parentElement)?.innerText?.trim() || ""))
+      tipo: await inputs.nth(i).evaluate(e => e.type),
+      texto: (await inputs.nth(i).evaluate(e => (e.closest('label') || e.parentElement)?.innerText?.trim() || ""))
         .replace(/\s+/g, " ").replace(/ Selected$/, ""),
-      marcado: await radios.nth(i).isChecked().catch(() => false),
+      marcado: await inputs.nth(i).isChecked().catch(() => false),
     });
   }
   return out;
 }
 
 export async function elegir(page, indice) {
-  const r = page.locator('input[type=radio]').nth(indice);
+  const inputs = await inputsPregunta(page);
+  const r = inputs.nth(indice);
   await r.click({ force: true });
   await page.waitForTimeout(200);
+  if (await r.isChecked().catch(() => false)) return true;
+  // Inputs estilizados (escalas): el clic directo a veces no prende; probar el label
+  // asociado y luego check() como último recurso. Sin esto una escala quedaba "vacía"
+  // de forma intermitente y bloqueaba el examen entero.
+  await r.evaluate(e => (e.closest('label') || e.parentElement)?.click()).catch(() => {});
+  await page.waitForTimeout(200);
+  if (await r.isChecked().catch(() => false)) return true;
+  await r.check({ force: true }).catch(() => {});
+  await page.waitForTimeout(150);
   return await r.isChecked().catch(() => false);
+}
+
+/**
+ * Rellena los textareas vacíos visibles con el comentario estándar.
+ * Política del usuario (2026-09-13): TODO texto libre se contesta "Muy bueno".
+ */
+export const COMENTARIO_LIBRE = "Muy bueno";
+export async function rellenarTextoObligatorio(page) {
+  const areas = page.locator('textarea:visible');
+  const n = await areas.count();
+  let rellenos = 0;
+  for (let i = 0; i < n; i++) {
+    const v = await areas.nth(i).inputValue().catch(() => "x");
+    if (!v.trim()) { await areas.nth(i).fill(COMENTARIO_LIBRE).catch(() => {}); rellenos++; }
+  }
+  return rellenos;
 }
 
 /**
@@ -396,7 +445,16 @@ export async function enviar(page) {
   const b = boton(page, /^(submit|complete|finish|see results)$/i);
   if (!await b.count()) return null;
   if (!await clic(b, 15000)) return null;
-  await esperarResultado(page);
+  let listo = await esperarResultado(page);
+  if (!listo && /must provide an answer/i.test(await page.locator('body').innerText())) {
+    // El portal rechazó el envío por un texto libre obligatorio vacío (Academy).
+    const rellenos = await rellenarTextoObligatorio(page);
+    if (rellenos) {
+      const b2 = boton(page, /^(submit|complete|finish|see results)$/i);
+      if (await b2.count()) await clic(b2, 15000);
+      listo = await esperarResultado(page);
+    }
+  }
   const t = await page.locator('body').innerText();
   const m = t.match(/(\d+) of (\d+) Correct \((\d+)%\)/);
   return { score: m ? m[0] : null, aprobado: /you have passed|passed!/i.test(t), porcentaje: m ? +m[3] : null };

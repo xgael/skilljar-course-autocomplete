@@ -16,7 +16,7 @@
 import { writeFileSync, readFileSync, existsSync, unlinkSync, mkdirSync, readdirSync, statSync } from "node:fs";
 import {
   conectar, reiniciar, progreso, opciones, elegir, boton, clic, textoPregunta,
-  enviar, revelarCorrectas, esEncuesta, exigirSesion, esperarExamenListo, esperarPregunta, decidir, cargarBanco, guardarBanco, norm, log, guardar, leer, hay, ESTADO, BANCO_ARCHIVO, soltar} from "./lib.mjs";
+  enviar, revelarCorrectas, esEncuesta, exigirSesion, esperarExamenListo, esperarPregunta, decidir, cargarBanco, guardarBanco, norm, log, guardar, leer, hay, ESTADO, BANCO_ARCHIVO, soltar, rellenarTextoObligatorio} from "./lib.mjs";
 
 const filtro = process.argv.includes("--solo") ? process.argv[process.argv.indexOf("--solo") + 1] : null;
 const ESPERA_MAX_MS = Number(process.env.SKILLJAR_ESPERA ?? 600000);   // 10 min por pregunta
@@ -123,7 +123,16 @@ for (const P of pendientes) {
 
   let reveladas = null, final = null, bitacoraFinal = [];
   for (let intento = 1; intento <= 3; intento++) {
-    await page.goto(P.base + P.href, { waitUntil: "domcontentloaded", timeout: 90000 });
+    // net::ERR_ABORTED transitorio no debe tumbar toda la corrida: reintento una vez
+    // y si persiste se salta ESTE examen, no el proceso completo.
+    try {
+      await page.goto(P.base + P.href, { waitUntil: "domcontentloaded", timeout: 90000 });
+    } catch (e) {
+      log(LOG, `  goto falló (${String(e.message).slice(0, 60)}), reintento`);
+      await page.waitForTimeout(3000);
+      try { await page.goto(P.base + P.href, { waitUntil: "domcontentloaded", timeout: 90000 }); }
+      catch { log(LOG, `  goto falló otra vez, salto este examen`); break; }
+    }
     await esperarExamenListo(page);
     // En una corrida de 39 exámenes la sesión puede caducar a medias. Sin este chequeo
     // los exámenes empiezan a fallar por una razón que no es la que se reporta.
@@ -155,11 +164,52 @@ for (const P of pendientes) {
       const captura = `${CAPTURAS}/${P.href.split("/").pop()}-q${String(n).padStart(2, "0")}.png`;
       await page.screenshot({ path: captura }).catch(() => {});
 
-      if (!ops.length) { log(LOG, `  Q${n}/${total} texto libre, lo dejo vacío`); }
+      if (!ops.length) {
+        // Política del usuario (2026-09-13): los comentarios libres se contestan
+        // "Muy bueno" siempre (antes se dejaban vacíos y los obligatorios trababan).
+        const rellenos = await rellenarTextoObligatorio(page);
+        log(LOG, `  Q${n}/${total} texto libre: ${rellenos ? '"Muy bueno"' : "(ya tenía texto)"}`);
+        bitacora.push({ n, texto, elegida: rellenos ? "Muy bueno" : null, fuente: "texto libre" });
+      }
       else {
         const textos = ops.map(o => o.texto);
         const clave = CLAVES[P.href]?.[String(n)];
         let idx = -1, fuente = "", motivoBanco = null;
+
+        // ---- Preguntas de CHECKBOXES ("select all that apply", Academy) ----
+        // El banco las guarda con `multi: [textos...]`. Sin entrada multi: en recolectar
+        // se anota y se marca relleno para poder avanzar (nunca se envía); en otros modos
+        // se marca la primera para no trabar el examen (se corrige cuando el banco tenga
+        // la entrada). El avance SIEMPRE se verifica por número de pregunta.
+        if (ops.some(o => o.tipo === "checkbox")) {
+          const entradaMulti = BANCO.get(norm(texto));
+          if (entradaMulti?.multi?.length) {
+            const marcadas = [];
+            for (const m of entradaMulti.multi) {
+              const i = textos.findIndex(x => norm(x).includes(norm(m)) || norm(m).includes(norm(x)));
+              if (i >= 0 && await elegir(page, i)) marcadas.push(textos[i]);
+            }
+            log(LOG, `  Q${n}/${total} [banco multi] marqué ${marcadas.length}/${entradaMulti.multi.length}`);
+            bitacora.push({ n, texto, elegida: marcadas.join(" + "), fuente: "banco multi", captura });
+          } else if (RECOLECTAR) {
+            if (!desconocidasAqui.some(d => d.pregunta === n))
+              desconocidasAqui.push({ examen: P.titulo, curso: P.curso, href: P.href, pregunta: n, texto, opciones: textos, captura, multi: true, motivo: "checkbox multi sin entrada en banco" });
+            log(LOG, `  Q${n}/${total} [multi] sin entrada en banco, la anoto y marco relleno`);
+            await elegir(page, 0);
+          } else {
+            await elegir(page, 0);
+            log(LOG, `  Q${n}/${total} [multi sin banco] relleno provisional`);
+            bitacora.push({ n, texto, elegida: textos[0], fuente: "multi relleno", captura });
+          }
+          if (n >= total) break;
+          const sigM = boton(page, /^next question$|^next$/i);
+          if (!await sigM.count()) break;
+          if (!(await clic(sigM) && await esperarPregunta(page, n))) {
+            log(LOG, `  Q${n} !! pregunta multi no avanza, abandono este examen`);
+            abortar = true; break;
+          }
+          continue;
+        }
 
         // La regla de encuestas va PRIMERO, antes de cualquier fuente de respuesta.
         //
@@ -211,16 +261,28 @@ for (const P of pendientes) {
           // Se anota y se SIGUE, para juntar todas las desconocidas del examen en una
           // sola pasada. Antes abortaba en la primera: un examen con tres preguntas
           // nuevas costaba tres vueltas completas.
-          desconocidasAqui.push({ examen: P.titulo, curso: P.curso, href: P.href, pregunta: n, texto, opciones: textos, captura, motivo: motivoBanco });
+          // No re-anotar la misma pregunta si el portal nos rebotó y la releímos.
+          if (!desconocidasAqui.some(d => d.pregunta === n))
+            desconocidasAqui.push({ examen: P.titulo, curso: P.curso, href: P.href, pregunta: n, texto, opciones: textos, captura, motivo: motivoBanco });
           log(LOG, `  Q${n}/${total} sin respuesta confiable (${motivoBanco ?? "no está en el banco"}), la anoto y sigo inventariando`);
-          // Para poder ver la siguiente hay que avanzar. Se intenta SIN marcar nada; si
-          // el examen no deja, se marca la primera solo para pasar — no importa porque
-          // este examen ya no se va a enviar (abortar queda en true al final).
+          // Para poder ver la siguiente hay que avanzar. Se intenta SIN marcar nada,
+          // PERO hay exámenes (Academy) que exigen respuesta: el clic a Next "funciona"
+          // y el portal rebota con "You must provide an answer" — la pregunta NO cambia.
+          // La única señal fiable es que el número avance; si no avanzó, se marca la
+          // primera opción SOLO para poder pasar (este examen no se envía en modo
+          // recolectar) y se reintenta. Si ni así, se abandona: jamás quedarse en bucle.
           if (n >= total) break;
           let sig = boton(page, /^next question$|^next$/i);
           if (!await sig.count()) break;
-          if (!await clic(sig)) { await elegir(page, 0); await clic(boton(page, /^next question$|^next$/i)); }
-          await esperarPregunta(page, n);
+          await clic(sig);
+          if (!await esperarPregunta(page, n, 6000)) {
+            await elegir(page, 0);
+            await clic(boton(page, /^next question$|^next$/i));
+            if (!await esperarPregunta(page, n, 8000)) {
+              log(LOG, `  Q${n} !! no pude avanzar ni con relleno, abandono la recolección de este examen`);
+              break;
+            }
+          }
           continue;
         }
         if (idx < 0 && SONDEAR) {
@@ -249,7 +311,17 @@ for (const P of pendientes) {
       if (!await clic(sig)) { log(LOG, `  Q${n} !! no pude avanzar`); abortar = true; break; }
       // Esperar a que el número de pregunta CAMBIE, no contar hasta 1.3s: si el portal
       // tarda más se leía la pregunta anterior, y si tarda menos se dormía de gratis.
-      if (!await esperarPregunta(page, n)) { log(LOG, `  Q${n} !! la siguiente pregunta no apareció`); abortar = true; break; }
+      if (!await esperarPregunta(page, n)) {
+        // Texto libre OBLIGATORIO a media prueba (Academy): el portal rebota el avance
+        // con "You must provide an answer". Relleno neutral y un solo reintento.
+        if (/must provide an answer/i.test(await page.locator('body').innerText())
+            && await rellenarTextoObligatorio(page)) {
+          log(LOG, `  Q${n} texto libre obligatorio: relleno "N/A" para poder avanzar`);
+          await clic(boton(page, /^next question$|^next$/i));
+          if (await esperarPregunta(page, n)) continue;
+        }
+        log(LOG, `  Q${n} !! la siguiente pregunta no apareció`); abortar = true; break;
+      }
     }
 
     // Si quedaron desconocidas, este examen NO se envía: se guardan todas juntas para
