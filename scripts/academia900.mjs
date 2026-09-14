@@ -8,25 +8,47 @@
 // 'hecho' se saltan. Nada de paralelo entre cuentas: el portal es una sesión a la vez.
 
 import { execFileSync } from "node:child_process";
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
-import { dirname, fileURLToPath } from "node:path";
-import { fileURLToPath as f2 } from "node:url";
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from "node:fs";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const arg = n => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : null; };
 const CSV = arg("--csv") || `${process.env.HOME}/telegram_files/CUENTAS_SKILLJAR_900.csv`;
 const MAX = Number(arg("--max") || "0");         // 0 = sin límite
 const DESDE = Number(arg("--desde") || "1");     // 1-based, salta las primeras N-1
+const HASTA = Number(arg("--hasta") || "0");     // 1-based inclusive; 0 = hasta el final
 const SOLO = arg("--solo");                        // procesar solo este correo
 const PORTAL = "https://anthropic.skilljar.com/";
 const LISTA = `${process.env.HOME}/Documentos/skilljar-cursos/academia_cursos.txt`;
 const NOTAS = `${process.env.HOME}/Documentos/skilljar-cursos`;
-const PROGRESO = `${NOTAS}/academia900_progreso.json`;
-const ENV = { ...process.env, SKILLJAR_DIR: "/tmp/skj900", SKILLJAR_PUERTO: "9222", SKILLJAR_NOTAS: NOTAS };
+// Cada worker escribe SU archivo de progreso (evita carreras read-modify-write entre
+// workers paralelos), pero para decidir qué cuentas saltar se LEEN TODOS los
+// academia900_progreso*.json del directorio.
+const PROGRESO = arg("--progreso") || `${NOTAS}/academia900_progreso.json`;
+const ENV = {
+  ...process.env,
+  SKILLJAR_DIR: process.env.SKILLJAR_DIR || "/tmp/skj900",
+  SKILLJAR_PUERTO: process.env.SKILLJAR_PUERTO || "9222",
+  SKILLJAR_NOTAS: NOTAS,
+};
 
 mkdirSync(NOTAS, { recursive: true });
 const prog = existsSync(PROGRESO) ? JSON.parse(readFileSync(PROGRESO, "utf8")) : {};
 const guardaProg = () => writeFileSync(PROGRESO, JSON.stringify(prog, null, 2));
+function hechasGlobales() {
+  const done = new Set();
+  try {
+    for (const f of readdirSync(NOTAS)) {
+      if (!/^academia900_progreso.*\.json$/.test(f)) continue;
+      try {
+        const p = JSON.parse(readFileSync(`${NOTAS}/${f}`, "utf8"));
+        for (const [em, v] of Object.entries(p)) if (v.status === "hecho") done.add(em);
+      } catch {}
+    }
+  } catch {}
+  return done;
+}
 
 // --- CSV: Nombre,Correo,Contraseña,Estado ---
 const filas = readFileSync(CSV, "utf8").trim().split(/\r?\n/).slice(1)
@@ -46,26 +68,29 @@ function corre(script, args, ms) {
 }
 
 function cursosDeJson() {
-  try { return JSON.parse(readFileSync("/tmp/skj900/cursos.json", "utf8")); } catch { return []; }
+  try { return JSON.parse(readFileSync(`${ENV.SKILLJAR_DIR}/cursos.json`, "utf8")); } catch { return []; }
 }
 
 // Cuenta cursos al 100% leyendo el veredicto de verificar (resumen.json)
 function contarCompletos() {
   try {
-    const r = JSON.parse(readFileSync("/tmp/skj900/verificacion.json", "utf8"));
+    const r = JSON.parse(readFileSync(`${ENV.SKILLJAR_DIR}/verificacion.json`, "utf8"));
     return r;
   } catch { return null; }
 }
 
 let procesadas = 0;
+const yaHechas = hechasGlobales();
+console.log(`hechas globales al arrancar: ${yaHechas.size}`);
 for (let idx = 0; idx < filas.length; idx++) {
-  if (existsSync("/tmp/skj900/STOP")) { console.log("STOP detectado, salgo limpio"); break; }
+  if (existsSync(`${ENV.SKILLJAR_DIR}/STOP`) || existsSync("/tmp/skj900/STOP")) { console.log("STOP detectado, salgo limpio"); break; }
   const n = idx + 1;
   if (n < DESDE) continue;
+  if (HASTA && n > HASTA) break;
   const { nombre, email, pass } = filas[idx];
   if (SOLO && email !== SOLO) continue;
   const est = prog[email];
-  if (est && est.status === "hecho") { continue; }
+  if ((est && est.status === "hecho") || yaHechas.has(email)) { continue; }
   if (MAX && procesadas >= MAX) break;
   procesadas++;
 

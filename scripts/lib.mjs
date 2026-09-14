@@ -169,7 +169,10 @@ export async function reiniciar(page) {
     // dispara la navegación del ancla: hay que clicar el <a>.
     const tta = page.locator('div.redirect_to_start_page a, a:has-text("Take this again")').first();
     if (await tta.count()) {
+      // El <a> navega: esperar a que la navegación asiente antes de seguir, si no
+      // esperarExamenListo lee todavía la pantalla de score y reiniciar cree que falló.
       await clic(tta);
+      await page.waitForLoadState("domcontentloaded").catch(() => {});
     } else {
       await page.evaluate(() => {
         const buscar = raiz => {
@@ -185,11 +188,14 @@ export async function reiniciar(page) {
         return buscar(document);
       });
     }
-    await esperarExamenListo(page, 8000);
+    await esperarExamenListo(page, 12000);
 
-    if (!(await progreso(page))[0]) {
+    // Tras el reinicio suele aparecer una pantalla con "Start"; esperar a que exista y
+    // pulsarla, reintentando, hasta llegar a la pregunta 1.
+    for (let s = 0; s < 3 && !(await progreso(page))[0]; s++) {
       const start = boton(page, /start/i);
-      if (await start.count()) { await clic(start); await esperarPregunta(page, null, 10000); }
+      if (await start.count()) { await clic(start); await esperarPregunta(page, null, 12000); }
+      else await esperarExamenListo(page, 6000);
     }
     // Si quedó a media, caminar hacia atrás.
     let guarda = 0;
