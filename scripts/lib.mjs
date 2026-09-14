@@ -188,14 +188,14 @@ export async function reiniciar(page) {
         return buscar(document);
       });
     }
-    await esperarExamenListo(page, 12000);
+    await esperarExamenListo(page, 20000);
 
     // Tras el reinicio suele aparecer una pantalla con "Start"; esperar a que exista y
     // pulsarla, reintentando, hasta llegar a la pregunta 1.
     for (let s = 0; s < 3 && !(await progreso(page))[0]; s++) {
       const start = boton(page, /start/i);
-      if (await start.count()) { await clic(start); await esperarPregunta(page, null, 12000); }
-      else await esperarExamenListo(page, 6000);
+      if (await start.count()) { await clic(start); await esperarPregunta(page, null, 18000); }
+      else await esperarExamenListo(page, 9000);
     }
     // Si quedó a media, caminar hacia atrás.
     let guarda = 0;

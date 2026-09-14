@@ -152,6 +152,7 @@ for (const P of pendientes) {
     const bitacora = [];
     const desconocidasAqui = [];
     const sondeadas = [];
+    const sondeoPreguntas = [];   // texto+opciones de lo sondeado, por si no hay reveal
     let abortar = false;
     for (let paso = 0; paso < 60; paso++) {
       const [n, total] = await progreso(page);
@@ -298,6 +299,7 @@ for (const P of pendientes) {
           // que la plataforma revele las correctas y el siguiente intento salga 100%.
           idx = 0; fuente = "sondeo (la plataforma va a revelar la correcta)";
           sondeadas.push(n);
+          sondeoPreguntas.push({ examen: P.titulo, curso: P.curso, href: P.href, pregunta: n, texto, opciones: textos, captura });
           log(LOG, `  Q${n}/${total} [sondeo] no la sé (${motivoBanco ?? "no está en el banco"}), marco para que la plataforma me la revele`);
         }
         if (idx < 0) {
@@ -386,6 +388,11 @@ for (const P of pendientes) {
         { examen: P.titulo, curso: P.curso, href: P.href, score: r.score,
           preguntas: bitacora.filter(b => sondeadas.includes(b.n)).map(b => ({ n: b.n, texto: b.texto })) },
       ]);
+      // Y guardarlas CON OPCIONES en desconocidas.json: es la única vía para que el
+      // banco aprenda las variantes del pool de preguntas de exámenes sin reveal.
+      const previasD = hay(`${ESTADO}/desconocidas.json`) ? leer(`${ESTADO}/desconocidas.json`) : [];
+      const nuevasD = sondeoPreguntas.filter(q => !previasD.some(p => p.texto === q.texto));
+      if (nuevasD.length) guardar(`${ESTADO}/desconocidas.json`, [...previasD, ...nuevasD]);
     }
     if (!cuantas) break;
   }
