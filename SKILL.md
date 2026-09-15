@@ -507,3 +507,63 @@ No eran de contenido. El banco tenía las respuestas; lo que se rompía era el n
 3. **Un navegador caído se llevaba todos los cursos siguientes.** Ahora cada curso tiene
    dos intentos: si el error huele a navegador muerto, `conectar()` se relanza solo y
    repite **ese** curso.
+
+## Anthropic ACADEMY (anthropic.skilljar.com) y lotes masivos de cuentas — 2026-09
+
+Portal distinto al de partners. Todo lo de esta sección se pagó operando un lote de
+900 cuentas con 21 cursos cada una (~330 cerradas y verificadas al escribir esto).
+
+### Autenticación
+- **Email + password normales** (`accounts.skilljar.com`, campos `#id_login` / `#id_password`),
+  NO código OTP. Usar `login-pw.mjs` (también hace `--signout` y limpia cookies para
+  aislar la cuenta siguiente). El login se espera por CONDICIÓN (sesión viva), no por reloj.
+- Los links de invitación (`/accounts/invite/…`) caducan rápido; con password no hacen falta.
+- Sesiones de cuentas DISTINTAS conviven sin pisarse (hasta 8 Chromes paralelos probados):
+  la restricción de sesión única era del SSO de partners, no aplica aquí.
+
+### Trampas del portal (todas con fix en el código)
+1. **Preguntas obligatorias**: Next/Submit rebotan EN SILENCIO ("You must provide an
+   answer"). Verificar SIEMPRE que el número de pregunta cambió; jamás confiar en que
+   el clic "funcionó".
+2. **Checkboxes "select all that apply"**: banco con `{multi:[textos]}`. `opciones()`
+   NUNCA mezcla radios con checkboxes (los strays corren los índices y el punto medio
+   de las encuestas cae en el input equivocado → escala "vacía" → examen trabado).
+3. **Escalas con inputs estilizados**: el clic directo a veces no prende; `elegir()`
+   reintenta vía label y `check()`.
+4. **Texto libre**: política del usuario 2026-09-13 — SIEMPRE se contesta "Muy bueno"
+   (`rellenarTextoObligatorio`). Cubre los obligatorios a media prueba y al enviar.
+5. **"Take this again"** = spans dentro de un `<a>` (`div.redirect_to_start_page a`).
+   Clicar el ANCLA; el span interno no navega. Tras el clic, esperar la NAVEGACIÓN
+   antes de buscar el botón Start.
+6. **El goto puede aterrizar en el TEMARIO sin montar la lección del examen** (lazy
+   render bajo carga; 196 evidencias). Señal: ni pregunta, ni Start, ni score, ni TTA
+   — solo la lista de lecciones. Fix: clicar la PROPIA lección (`a[href$=…]`) desde el
+   temario y reesperar. Era la causa dominante del "no pude abrir el examen".
+7. **Los quizzes rotan preguntas de un POOL por cuenta**: variantes nuevas aparecen
+   todo el tiempo. Los exámenes que revelan correctas se auto-curan con `--sondear` y
+   el banco APRENDE (guardar el banco local del worker y fusionarlo al maestro: 122
+   respuestas se promovieron a verificadas así). Los que NO revelan persisten sus
+   sondeos con OPCIONES en `desconocidas.json` para contestarlos al banco a mano.
+8. **⚠️ El icono `fa-check-square-o` del "Show Answers" marca TU selección, NO la
+   correcta** (en exámenes sin reveal real). Extraer "correctas" de ahí = re-aprender
+   tus propios errores (un quiz dio 30% dos veces por esto). La marca fiable es
+   `div.answer.correct`, y solo existe en exámenes que sí revelan.
+
+### Lote masivo (academia900.mjs + worker_detached.sh)
+- **Orquestador por cuenta**: login → inscribir (lista fija) → walk → `run --sondear`
+  → walk 2ª pasada (los "Certificate of completion" solo marcan tras aprobar el quiz)
+  → `verificar`. Una cuenta es `hecho` SOLO con "N/N cursos cerrados"; si no, queda
+  `parcial` y se reintenta al agotar el rango. La verdad es SIEMPRE el veredicto del
+  portal, nunca la bitácora propia.
+- **Workers paralelos**: rangos SIN solapamiento en `rangos.txt`; cada worker con su
+  Chrome (puerto/perfil propios), su `SKILLJAR_DIR` y su archivo de progreso (evita
+  carreras read-modify-write); para saltar cuentas se leen TODOS los
+  `academia900_progreso*.json`. 8 workers ≈ techo prudente en una sola IP.
+- **Supervivencia**: procesos con `nohup …& disown` sobreviven al cierre de la sesión
+  del agente (los `run_in_background` del harness NO). Watchdog en **LaunchAgent**
+  (crontab se cuelga por TCC con la pantalla bloqueada) que relanza workers muertos y
+  avisa por Telegram por hitos. Freno: `/tmp/skj900/STOP` (global) o por worker.
+- **Rendimiento**: ~30 min/cuenta (21 cursos, ~450 lecciones). `SKILLJAR_SIN_CAPTURAS=1`
+  ahorra 2-3 min/cuenta (sin PNG por pregunta; las desconocidas SÍ se capturan).
+- **Al pausar/terminar un lote: fusionar los bancos locales de los workers al maestro**
+  (`/tmp/skj900-w*/banco.json`) — ahí vive lo aprendido por reveals y se pierde con /tmp.

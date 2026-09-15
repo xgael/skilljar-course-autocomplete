@@ -138,6 +138,21 @@ for (const P of pendientes) {
     // los exámenes empiezan a fallar por una razón que no es la que se reporta.
     await exigirSesion(page);
 
+    // Bajo carga, el goto a la lección del examen a veces aterriza en el TEMARIO sin
+    // montar el contenido (196 evidencias: body = lista de lecciones, sin Start, sin
+    // score, sin "Take this again"). El examen se abre clicando su PROPIA lección en
+    // el temario. Sin esto, reiniciar() no encuentra nada y el examen se salta.
+    if (!(await progreso(page))[0]
+        && !await boton(page, /start/i).count()
+        && !/did not pass|you have passed|Correct \(/i.test(await page.locator('body').innerText())) {
+      const propia = page.locator(`a[href$="${P.href}"]`).first();
+      if (await propia.count()) {
+        log(LOG, `  el examen no montó al navegar: lo abro desde el temario`);
+        await clic(propia);
+        await esperarExamenListo(page, 20000);
+      }
+    }
+
     const cuerpo = await page.locator('body').innerText();
     if (intento === 1 && /you have passed/i.test(cuerpo) && /\(100%\)/.test(cuerpo)) {
       final = { score: (cuerpo.match(/\d+ of \d+ Correct \(\d+%\)/) || ["?"])[0], aprobado: true };
@@ -147,7 +162,15 @@ for (const P of pendientes) {
 
     const start = boton(page, /start/i);
     if (await start.count()) { await clic(start); await esperarPregunta(page); }
-    if (!await reiniciar(page)) { log(LOG, "  !! no pude abrir el examen en la pregunta 1"); break; }
+    if (!await reiniciar(page)) {
+      log(LOG, "  !! no pude abrir el examen en la pregunta 1");
+      // Diagnóstico: dejar evidencia del estado exacto en que quedó la página.
+      const diag = `${CAPTURAS}/noabre-${P.href.split("/").pop()}-${Date.now()}`;
+      await page.screenshot({ path: diag + ".png" }).catch(() => {});
+      const cuerpoDiag = await page.locator('body').innerText().catch(() => "");
+      guardar(diag + ".json", { href: P.href, url: page.url(), body: cuerpoDiag.slice(0, 800) });
+      break;
+    }
 
     const bitacora = [];
     const desconocidasAqui = [];
