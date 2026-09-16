@@ -153,6 +153,25 @@ for (const P of pendientes) {
       }
     }
 
+    // Bajo carga (varios workers) el quiz puede quedarse en "Loading..." indefinido:
+    // el XHR del quiz engine murió y el goto de reintento no siempre lo destraba.
+    // Espera activa a que el Loading resuelva y, si persiste, UNA recarga dura.
+    for (let recargas = 0; recargas <= 1; recargas++) {
+      let cargando = true;
+      for (let t = 0; t < 30 && cargando; t++) {   // hasta 45 s
+        const b = await page.locator('body').innerText().catch(() => "");
+        cargando = /Loading\.\.\./.test(b) && !/Correct \(|did not pass|you have passed/i.test(b)
+                   && !await boton(page, /start/i).count();
+        if (cargando) await page.waitForTimeout(1500);
+      }
+      if (!cargando) break;
+      if (recargas === 0) {
+        log(LOG, "  quiz atorado en Loading...: recarga dura");
+        await page.reload({ waitUntil: "domcontentloaded", timeout: 90000 }).catch(() => {});
+        await esperarExamenListo(page, 20000);
+      }
+    }
+
     const cuerpo = await page.locator('body').innerText();
     if (intento === 1 && /you have passed/i.test(cuerpo) && /\(100%\)/.test(cuerpo)) {
       final = { score: (cuerpo.match(/\d+ of \d+ Correct \(\d+%\)/) || ["?"])[0], aprobado: true };
