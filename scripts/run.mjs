@@ -142,14 +142,32 @@ for (const P of pendientes) {
     // montar el contenido (196 evidencias: body = lista de lecciones, sin Start, sin
     // score, sin "Take this again"). El examen se abre clicando su PROPIA lección en
     // el temario. Sin esto, reiniciar() no encuentra nada y el examen se salta.
-    if (!(await progreso(page))[0]
-        && !await boton(page, /start/i).count()
-        && !/did not pass|you have passed|Correct \(/i.test(await page.locator('body').innerText())) {
+    const montado = async () => (await progreso(page))[0]
+        || await boton(page, /start/i).count()
+        || /did not pass|you have passed|Correct \(|Take this again/i.test(
+             await page.locator('body').innerText().catch(() => ""));
+    if (!await montado()) {
+      // Primero: clicar la propia lección si el temario ya la lista.
       const propia = page.locator(`a[href$="${P.href}"]`).first();
       if (await propia.count()) {
         log(LOG, `  el examen no montó al navegar: lo abro desde el temario`);
         await clic(propia);
         await esperarExamenListo(page, 20000);
+      }
+      // Rescate validado en vivo: navegar a la PORTADA del curso y entrar a la
+      // lección con un clic de usuario (el goto directo a la lección es lo que
+      // aterriza en el temario sin montar; vía portada el quiz monta y muestra
+      // su estado real, p.ej. "did not pass + Take this again").
+      if (!await montado()) {
+        const curso = P.href.replace(/\/[^/]+$/, "");
+        log(LOG, `  sigue sin montar: entro por la portada del curso`);
+        await page.goto(P.base + curso, { waitUntil: "domcontentloaded", timeout: 90000 }).catch(() => {});
+        await page.waitForTimeout(2500);
+        const desdePortada = page.locator(`a[href$="${P.href}"]`).first();
+        if (await desdePortada.count()) {
+          await clic(desdePortada);
+          for (let t = 0; t < 20 && !await montado(); t++) await page.waitForTimeout(1500);
+        }
       }
     }
 
